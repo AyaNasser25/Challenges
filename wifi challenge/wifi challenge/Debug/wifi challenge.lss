@@ -1,0 +1,1623 @@
+
+wifi challenge.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000c94  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         0000008e  00800060  00000c94  00000d28  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          000002fa  008000ee  008000ee  00000db6  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000db6  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000de8  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 000000f8  00000000  00000000  00000e24  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   000015f6  00000000  00000000  00000f1c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 0000097b  00000000  00000000  00002512  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000e65  00000000  00000000  00002e8d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000364  00000000  00000000  00003cf4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000007dd  00000000  00000000  00004058  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00001580  00000000  00000000  00004835  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 000000e0  00000000  00000000  00005db5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 c1 00 	jmp	0x182	; 0x182 <__vector_13>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	e4 e9       	ldi	r30, 0x94	; 148
+  68:	fc e0       	ldi	r31, 0x0C	; 12
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	ae 3e       	cpi	r26, 0xEE	; 238
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+
+00000076 <__do_clear_bss>:
+  76:	23 e0       	ldi	r18, 0x03	; 3
+  78:	ae ee       	ldi	r26, 0xEE	; 238
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	a8 3e       	cpi	r26, 0xE8	; 232
+  82:	b2 07       	cpc	r27, r18
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 49 00 	call	0x92	; 0x92 <main>
+  8a:	0c 94 48 06 	jmp	0xc90	; 0xc90 <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <main>:
+{
+	
+	int* DataReceived;
+	
+
+	Disable_Interrupts();
+  92:	f8 94       	cli
+	UART_Init(9600,ESP_FillResponseBuffer);
+  94:	4b e0       	ldi	r20, 0x0B	; 11
+  96:	52 e0       	ldi	r21, 0x02	; 2
+  98:	60 e8       	ldi	r22, 0x80	; 128
+  9a:	75 e2       	ldi	r23, 0x25	; 37
+  9c:	80 e0       	ldi	r24, 0x00	; 0
+  9e:	90 e0       	ldi	r25, 0x00	; 0
+  a0:	0e 94 80 00 	call	0x100	; 0x100 <UART_Init>
+	Enable_Interrupts();
+  a4:	78 94       	sei
+	
+	WIFI_Service_Start(Server, "4444", "aya", "1234567890", NULL, NULL, NULL, NULL);
+  a6:	a1 2c       	mov	r10, r1
+  a8:	b1 2c       	mov	r11, r1
+  aa:	c1 2c       	mov	r12, r1
+  ac:	d1 2c       	mov	r13, r1
+  ae:	e1 2c       	mov	r14, r1
+  b0:	f1 2c       	mov	r15, r1
+  b2:	00 e0       	ldi	r16, 0x00	; 0
+  b4:	10 e0       	ldi	r17, 0x00	; 0
+  b6:	20 e6       	ldi	r18, 0x60	; 96
+  b8:	30 e0       	ldi	r19, 0x00	; 0
+  ba:	4b e6       	ldi	r20, 0x6B	; 107
+  bc:	50 e0       	ldi	r21, 0x00	; 0
+  be:	6f e6       	ldi	r22, 0x6F	; 111
+  c0:	70 e0       	ldi	r23, 0x00	; 0
+  c2:	80 e0       	ldi	r24, 0x00	; 0
+  c4:	0e 94 fc 05 	call	0xbf8	; 0xbf8 <WIFI_Service_Start>
+	
+	while(OK_Status!=ESP_SendData("Wifi Demo Started","17"));
+  c8:	64 e7       	ldi	r22, 0x74	; 116
+  ca:	70 e0       	ldi	r23, 0x00	; 0
+  cc:	87 e7       	ldi	r24, 0x77	; 119
+  ce:	90 e0       	ldi	r25, 0x00	; 0
+  d0:	0e 94 ba 04 	call	0x974	; 0x974 <ESP_SendData>
+  d4:	81 30       	cpi	r24, 0x01	; 1
+  d6:	c1 f7       	brne	.-16     	; 0xc8 <main+0x36>
+	DDRB |= (1<<4);
+  d8:	bc 9a       	sbi	0x17, 4	; 23
+	DataReceived=NO_Response;
+	//while(NO_Response==DataReceived)
+	//{
+		while(1){
+			/* receive data from wifi into datareceived pointer */
+		DataReceived=ESP_ReceiveData();
+  da:	0e 94 43 05 	call	0xa86	; 0xa86 <ESP_ReceiveData>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  de:	2f e3       	ldi	r18, 0x3F	; 63
+  e0:	3d e0       	ldi	r19, 0x0D	; 13
+  e2:	43 e0       	ldi	r20, 0x03	; 3
+  e4:	21 50       	subi	r18, 0x01	; 1
+  e6:	30 40       	sbci	r19, 0x00	; 0
+  e8:	40 40       	sbci	r20, 0x00	; 0
+  ea:	e1 f7       	brne	.-8      	; 0xe4 <main+0x52>
+  ec:	00 c0       	rjmp	.+0      	; 0xee <main+0x5c>
+  ee:	00 00       	nop
+		_delay_ms(1000);
+	/* check on the recieveddata value if it equal character a */
+		if (*DataReceived == 'a')
+  f0:	fc 01       	movw	r30, r24
+  f2:	80 81       	ld	r24, Z
+  f4:	91 81       	ldd	r25, Z+1	; 0x01
+  f6:	81 36       	cpi	r24, 0x61	; 97
+  f8:	91 05       	cpc	r25, r1
+  fa:	79 f7       	brne	.-34     	; 0xda <main+0x48>
+		{
+			/* then led 0 on */
+			PORTB |= (1<<4);
+  fc:	c4 9a       	sbi	0x18, 4	; 24
+  fe:	ed cf       	rjmp	.-38     	; 0xda <main+0x48>
+
+00000100 <UART_Init>:
+
+char UART_Receive_Byte(void)
+{
+	while ( !(UCSRA & (1<<RXC)) );
+	return UDR;
+}
+ 100:	cf 93       	push	r28
+ 102:	df 93       	push	r29
+ 104:	ea 01       	movw	r28, r20
+ 106:	dc 01       	movw	r26, r24
+ 108:	cb 01       	movw	r24, r22
+ 10a:	88 0f       	add	r24, r24
+ 10c:	99 1f       	adc	r25, r25
+ 10e:	aa 1f       	adc	r26, r26
+ 110:	bb 1f       	adc	r27, r27
+ 112:	88 0f       	add	r24, r24
+ 114:	99 1f       	adc	r25, r25
+ 116:	aa 1f       	adc	r26, r26
+ 118:	bb 1f       	adc	r27, r27
+ 11a:	9c 01       	movw	r18, r24
+ 11c:	ad 01       	movw	r20, r26
+ 11e:	22 0f       	add	r18, r18
+ 120:	33 1f       	adc	r19, r19
+ 122:	44 1f       	adc	r20, r20
+ 124:	55 1f       	adc	r21, r21
+ 126:	22 0f       	add	r18, r18
+ 128:	33 1f       	adc	r19, r19
+ 12a:	44 1f       	adc	r20, r20
+ 12c:	55 1f       	adc	r21, r21
+ 12e:	60 e0       	ldi	r22, 0x00	; 0
+ 130:	74 e2       	ldi	r23, 0x24	; 36
+ 132:	84 ef       	ldi	r24, 0xF4	; 244
+ 134:	90 e0       	ldi	r25, 0x00	; 0
+ 136:	0e 94 26 06 	call	0xc4c	; 0xc4c <__udivmodsi4>
+ 13a:	21 50       	subi	r18, 0x01	; 1
+ 13c:	31 09       	sbc	r19, r1
+ 13e:	8a b1       	in	r24, 0x0a	; 10
+ 140:	88 61       	ori	r24, 0x18	; 24
+ 142:	8a b9       	out	0x0a, r24	; 10
+ 144:	20 97       	sbiw	r28, 0x00	; 0
+ 146:	29 f0       	breq	.+10     	; 0x152 <UART_Init+0x52>
+ 148:	d0 93 ef 00 	sts	0x00EF, r29	; 0x8000ef <__data_end+0x1>
+ 14c:	c0 93 ee 00 	sts	0x00EE, r28	; 0x8000ee <__data_end>
+ 150:	57 9a       	sbi	0x0a, 7	; 10
+ 152:	30 bd       	out	0x20, r19	; 32
+ 154:	29 b9       	out	0x09, r18	; 9
+ 156:	df 91       	pop	r29
+ 158:	cf 91       	pop	r28
+ 15a:	08 95       	ret
+
+0000015c <UART_Write_Byte>:
+ 15c:	5d 9b       	sbis	0x0b, 5	; 11
+ 15e:	fe cf       	rjmp	.-4      	; 0x15c <UART_Write_Byte>
+ 160:	8c b9       	out	0x0c, r24	; 12
+ 162:	08 95       	ret
+
+00000164 <UART_Write_String>:
+ 164:	cf 93       	push	r28
+ 166:	df 93       	push	r29
+ 168:	ec 01       	movw	r28, r24
+ 16a:	88 81       	ld	r24, Y
+ 16c:	88 23       	and	r24, r24
+ 16e:	31 f0       	breq	.+12     	; 0x17c <UART_Write_String+0x18>
+ 170:	21 96       	adiw	r28, 0x01	; 1
+ 172:	0e 94 ae 00 	call	0x15c	; 0x15c <UART_Write_Byte>
+ 176:	89 91       	ld	r24, Y+
+ 178:	81 11       	cpse	r24, r1
+ 17a:	fb cf       	rjmp	.-10     	; 0x172 <UART_Write_String+0xe>
+ 17c:	df 91       	pop	r29
+ 17e:	cf 91       	pop	r28
+ 180:	08 95       	ret
+
+00000182 <__vector_13>:
+
+
+
+ISR(USART_RXC_vect)
+{
+ 182:	1f 92       	push	r1
+ 184:	0f 92       	push	r0
+ 186:	0f b6       	in	r0, 0x3f	; 63
+ 188:	0f 92       	push	r0
+ 18a:	11 24       	eor	r1, r1
+ 18c:	2f 93       	push	r18
+ 18e:	3f 93       	push	r19
+ 190:	4f 93       	push	r20
+ 192:	5f 93       	push	r21
+ 194:	6f 93       	push	r22
+ 196:	7f 93       	push	r23
+ 198:	8f 93       	push	r24
+ 19a:	9f 93       	push	r25
+ 19c:	af 93       	push	r26
+ 19e:	bf 93       	push	r27
+ 1a0:	ef 93       	push	r30
+ 1a2:	ff 93       	push	r31
+	UART_Rx_Callback(UDR);
+ 1a4:	8c b1       	in	r24, 0x0c	; 12
+ 1a6:	e0 91 ee 00 	lds	r30, 0x00EE	; 0x8000ee <__data_end>
+ 1aa:	f0 91 ef 00 	lds	r31, 0x00EF	; 0x8000ef <__data_end+0x1>
+ 1ae:	09 95       	icall
+}
+ 1b0:	ff 91       	pop	r31
+ 1b2:	ef 91       	pop	r30
+ 1b4:	bf 91       	pop	r27
+ 1b6:	af 91       	pop	r26
+ 1b8:	9f 91       	pop	r25
+ 1ba:	8f 91       	pop	r24
+ 1bc:	7f 91       	pop	r23
+ 1be:	6f 91       	pop	r22
+ 1c0:	5f 91       	pop	r21
+ 1c2:	4f 91       	pop	r20
+ 1c4:	3f 91       	pop	r19
+ 1c6:	2f 91       	pop	r18
+ 1c8:	0f 90       	pop	r0
+ 1ca:	0f be       	out	0x3f, r0	; 63
+ 1cc:	0f 90       	pop	r0
+ 1ce:	1f 90       	pop	r1
+ 1d0:	18 95       	reti
+
+000001d2 <ESP_ReadResponseLine>:
+ 1d2:	8f 92       	push	r8
+ 1d4:	9f 92       	push	r9
+ 1d6:	af 92       	push	r10
+ 1d8:	bf 92       	push	r11
+ 1da:	cf 92       	push	r12
+ 1dc:	df 92       	push	r13
+ 1de:	ff 92       	push	r15
+ 1e0:	0f 93       	push	r16
+ 1e2:	1f 93       	push	r17
+ 1e4:	cf 93       	push	r28
+ 1e6:	df 93       	push	r29
+ 1e8:	00 91 f9 00 	lds	r16, 0x00F9	; 0x8000f9 <ResponseBufferMain_Index>
+ 1ec:	00 23       	and	r16, r16
+ 1ee:	09 f4       	brne	.+2      	; 0x1f2 <ESP_ReadResponseLine+0x20>
+ 1f0:	f6 c0       	rjmp	.+492    	; 0x3de <ESP_ReadResponseLine+0x20c>
+ 1f2:	f0 90 f7 00 	lds	r15, 0x00F7	; 0x8000f7 <CorrectDataReceived>
+ 1f6:	50 91 f8 00 	lds	r21, 0x00F8	; 0x8000f8 <ReceivedFullResponse>
+ 1fa:	6f ef       	ldi	r22, 0xFF	; 255
+ 1fc:	60 0f       	add	r22, r16
+ 1fe:	70 e0       	ldi	r23, 0x00	; 0
+ 200:	6e 5f       	subi	r22, 0xFE	; 254
+ 202:	7f 4f       	sbci	r23, 0xFF	; 255
+ 204:	81 e0       	ldi	r24, 0x01	; 1
+ 206:	90 e0       	ldi	r25, 0x00	; 0
+ 208:	10 e0       	ldi	r17, 0x00	; 0
+ 20a:	dd 24       	eor	r13, r13
+ 20c:	d3 94       	inc	r13
+ 20e:	a0 2f       	mov	r26, r16
+ 210:	b0 e0       	ldi	r27, 0x00	; 0
+ 212:	ed 01       	movw	r28, r26
+ 214:	c7 50       	subi	r28, 0x07	; 7
+ 216:	df 4f       	sbci	r29, 0xFF	; 255
+ 218:	9d 01       	movw	r18, r26
+ 21a:	29 50       	subi	r18, 0x09	; 9
+ 21c:	3f 4f       	sbci	r19, 0xFF	; 255
+ 21e:	49 01       	movw	r8, r18
+ 220:	b1 2c       	mov	r11, r1
+ 222:	c1 2c       	mov	r12, r1
+ 224:	9c 01       	movw	r18, r24
+ 226:	21 50       	subi	r18, 0x01	; 1
+ 228:	31 09       	sbc	r19, r1
+ 22a:	f9 01       	movw	r30, r18
+ 22c:	e6 50       	subi	r30, 0x06	; 6
+ 22e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 230:	40 81       	ld	r20, Z
+ 232:	4f 34       	cpi	r20, 0x4F	; 79
+ 234:	69 f4       	brne	.+26     	; 0x250 <ESP_ReadResponseLine+0x7e>
+ 236:	fc 01       	movw	r30, r24
+ 238:	e6 50       	subi	r30, 0x06	; 6
+ 23a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 23c:	20 81       	ld	r18, Z
+ 23e:	2b 34       	cpi	r18, 0x4B	; 75
+ 240:	09 f0       	breq	.+2      	; 0x244 <ESP_ReadResponseLine+0x72>
+ 242:	c4 c0       	rjmp	.+392    	; 0x3cc <ESP_ReadResponseLine+0x1fa>
+ 244:	28 81       	ld	r18, Y
+ 246:	2d 30       	cpi	r18, 0x0D	; 13
+ 248:	09 f0       	breq	.+2      	; 0x24c <ESP_ReadResponseLine+0x7a>
+ 24a:	c0 c0       	rjmp	.+384    	; 0x3cc <ESP_ReadResponseLine+0x1fa>
+ 24c:	5d 2d       	mov	r21, r13
+ 24e:	be c0       	rjmp	.+380    	; 0x3cc <ESP_ReadResponseLine+0x1fa>
+ 250:	f9 01       	movw	r30, r18
+ 252:	e6 50       	subi	r30, 0x06	; 6
+ 254:	ff 4f       	sbci	r31, 0xFF	; 255
+ 256:	40 81       	ld	r20, Z
+ 258:	4b 32       	cpi	r20, 0x2B	; 43
+ 25a:	09 f0       	breq	.+2      	; 0x25e <ESP_ReadResponseLine+0x8c>
+ 25c:	59 c0       	rjmp	.+178    	; 0x310 <ESP_ReadResponseLine+0x13e>
+ 25e:	fc 01       	movw	r30, r24
+ 260:	e6 50       	subi	r30, 0x06	; 6
+ 262:	ff 4f       	sbci	r31, 0xFF	; 255
+ 264:	20 81       	ld	r18, Z
+ 266:	29 34       	cpi	r18, 0x49	; 73
+ 268:	09 f0       	breq	.+2      	; 0x26c <ESP_ReadResponseLine+0x9a>
+ 26a:	45 c0       	rjmp	.+138    	; 0x2f6 <ESP_ReadResponseLine+0x124>
+ 26c:	d4 01       	movw	r26, r8
+ 26e:	2c 91       	ld	r18, X
+ 270:	2b 34       	cpi	r18, 0x4B	; 75
+ 272:	09 f0       	breq	.+2      	; 0x276 <ESP_ReadResponseLine+0xa4>
+ 274:	ab c0       	rjmp	.+342    	; 0x3cc <ESP_ReadResponseLine+0x1fa>
+ 276:	e1 2f       	mov	r30, r17
+ 278:	f0 e0       	ldi	r31, 0x00	; 0
+ 27a:	9f 01       	movw	r18, r30
+ 27c:	26 50       	subi	r18, 0x06	; 6
+ 27e:	3f 4f       	sbci	r19, 0xFF	; 255
+ 280:	d9 01       	movw	r26, r18
+ 282:	2c 91       	ld	r18, X
+ 284:	2a 33       	cpi	r18, 0x3A	; 58
+ 286:	49 f0       	breq	.+18     	; 0x29a <ESP_ReadResponseLine+0xc8>
+ 288:	1f 5f       	subi	r17, 0xFF	; 255
+ 28a:	e1 2f       	mov	r30, r17
+ 28c:	f0 e0       	ldi	r31, 0x00	; 0
+ 28e:	df 01       	movw	r26, r30
+ 290:	a6 50       	subi	r26, 0x06	; 6
+ 292:	bf 4f       	sbci	r27, 0xFF	; 255
+ 294:	2c 91       	ld	r18, X
+ 296:	2a 33       	cpi	r18, 0x3A	; 58
+ 298:	b9 f7       	brne	.-18     	; 0x288 <ESP_ReadResponseLine+0xb6>
+ 29a:	9f 01       	movw	r18, r30
+ 29c:	2f 5f       	subi	r18, 0xFF	; 255
+ 29e:	3f 4f       	sbci	r19, 0xFF	; 255
+ 2a0:	a9 01       	movw	r20, r18
+ 2a2:	46 50       	subi	r20, 0x06	; 6
+ 2a4:	5f 4f       	sbci	r21, 0xFF	; 255
+ 2a6:	da 01       	movw	r26, r20
+ 2a8:	4c 91       	ld	r20, X
+ 2aa:	4d 30       	cpi	r20, 0x0D	; 13
+ 2ac:	d9 f0       	breq	.+54     	; 0x2e4 <ESP_ReadResponseLine+0x112>
+ 2ae:	4b 2d       	mov	r20, r11
+ 2b0:	5c 2d       	mov	r21, r12
+ 2b2:	a1 2c       	mov	r10, r1
+ 2b4:	d9 01       	movw	r26, r18
+ 2b6:	a6 50       	subi	r26, 0x06	; 6
+ 2b8:	bf 4f       	sbci	r27, 0xFF	; 255
+ 2ba:	2c 91       	ld	r18, X
+ 2bc:	da 01       	movw	r26, r20
+ 2be:	a6 50       	subi	r26, 0x06	; 6
+ 2c0:	bf 4f       	sbci	r27, 0xFF	; 255
+ 2c2:	2c 93       	st	X, r18
+ 2c4:	a3 94       	inc	r10
+ 2c6:	4a 2d       	mov	r20, r10
+ 2c8:	50 e0       	ldi	r21, 0x00	; 0
+ 2ca:	9a 01       	movw	r18, r20
+ 2cc:	2e 0f       	add	r18, r30
+ 2ce:	3f 1f       	adc	r19, r31
+ 2d0:	2f 5f       	subi	r18, 0xFF	; 255
+ 2d2:	3f 4f       	sbci	r19, 0xFF	; 255
+ 2d4:	d9 01       	movw	r26, r18
+ 2d6:	a6 50       	subi	r26, 0x06	; 6
+ 2d8:	bf 4f       	sbci	r27, 0xFF	; 255
+ 2da:	fc 90       	ld	r15, X
+ 2dc:	bd e0       	ldi	r27, 0x0D	; 13
+ 2de:	fb 12       	cpse	r15, r27
+ 2e0:	e9 cf       	rjmp	.-46     	; 0x2b4 <ESP_ReadResponseLine+0xe2>
+ 2e2:	02 c0       	rjmp	.+4      	; 0x2e8 <ESP_ReadResponseLine+0x116>
+ 2e4:	4b 2d       	mov	r20, r11
+ 2e6:	5c 2d       	mov	r21, r12
+ 2e8:	fa 01       	movw	r30, r20
+ 2ea:	e6 50       	subi	r30, 0x06	; 6
+ 2ec:	ff 4f       	sbci	r31, 0xFF	; 255
+ 2ee:	10 82       	st	Z, r1
+ 2f0:	fd 2c       	mov	r15, r13
+ 2f2:	5d 2d       	mov	r21, r13
+ 2f4:	6b c0       	rjmp	.+214    	; 0x3cc <ESP_ReadResponseLine+0x1fa>
+ 2f6:	fc 01       	movw	r30, r24
+ 2f8:	e6 50       	subi	r30, 0x06	; 6
+ 2fa:	ff 4f       	sbci	r31, 0xFF	; 255
+ 2fc:	20 81       	ld	r18, Z
+ 2fe:	23 34       	cpi	r18, 0x43	; 67
+ 300:	09 f0       	breq	.+2      	; 0x304 <ESP_ReadResponseLine+0x132>
+ 302:	64 c0       	rjmp	.+200    	; 0x3cc <ESP_ReadResponseLine+0x1fa>
+ 304:	28 81       	ld	r18, Y
+ 306:	2d 30       	cpi	r18, 0x0D	; 13
+ 308:	09 f0       	breq	.+2      	; 0x30c <ESP_ReadResponseLine+0x13a>
+ 30a:	60 c0       	rjmp	.+192    	; 0x3cc <ESP_ReadResponseLine+0x1fa>
+ 30c:	5d 2d       	mov	r21, r13
+ 30e:	5e c0       	rjmp	.+188    	; 0x3cc <ESP_ReadResponseLine+0x1fa>
+ 310:	f9 01       	movw	r30, r18
+ 312:	e6 50       	subi	r30, 0x06	; 6
+ 314:	ff 4f       	sbci	r31, 0xFF	; 255
+ 316:	40 81       	ld	r20, Z
+ 318:	45 34       	cpi	r20, 0x45	; 69
+ 31a:	99 f4       	brne	.+38     	; 0x342 <ESP_ReadResponseLine+0x170>
+ 31c:	fc 01       	movw	r30, r24
+ 31e:	e6 50       	subi	r30, 0x06	; 6
+ 320:	ff 4f       	sbci	r31, 0xFF	; 255
+ 322:	20 81       	ld	r18, Z
+ 324:	22 35       	cpi	r18, 0x52	; 82
+ 326:	09 f0       	breq	.+2      	; 0x32a <ESP_ReadResponseLine+0x158>
+ 328:	51 c0       	rjmp	.+162    	; 0x3cc <ESP_ReadResponseLine+0x1fa>
+ 32a:	28 81       	ld	r18, Y
+ 32c:	2d 30       	cpi	r18, 0x0D	; 13
+ 32e:	09 f0       	breq	.+2      	; 0x332 <ESP_ReadResponseLine+0x160>
+ 330:	4d c0       	rjmp	.+154    	; 0x3cc <ESP_ReadResponseLine+0x1fa>
+ 332:	50 93 f8 00 	sts	0x00F8, r21	; 0x8000f8 <ReceivedFullResponse>
+ 336:	f0 92 f7 00 	sts	0x00F7, r15	; 0x8000f7 <CorrectDataReceived>
+ 33a:	10 92 f9 00 	sts	0x00F9, r1	; 0x8000f9 <ResponseBufferMain_Index>
+ 33e:	80 e0       	ldi	r24, 0x00	; 0
+ 340:	5e c0       	rjmp	.+188    	; 0x3fe <ESP_ReadResponseLine+0x22c>
+ 342:	f9 01       	movw	r30, r18
+ 344:	e6 50       	subi	r30, 0x06	; 6
+ 346:	ff 4f       	sbci	r31, 0xFF	; 255
+ 348:	40 81       	ld	r20, Z
+ 34a:	4e 34       	cpi	r20, 0x4E	; 78
+ 34c:	09 f5       	brne	.+66     	; 0x390 <ESP_ReadResponseLine+0x1be>
+ 34e:	fc 01       	movw	r30, r24
+ 350:	e6 50       	subi	r30, 0x06	; 6
+ 352:	ff 4f       	sbci	r31, 0xFF	; 255
+ 354:	20 81       	ld	r18, Z
+ 356:	2e 34       	cpi	r18, 0x4E	; 78
+ 358:	c9 f5       	brne	.+114    	; 0x3cc <ESP_ReadResponseLine+0x1fa>
+ 35a:	28 81       	ld	r18, Y
+ 35c:	2d 30       	cpi	r18, 0x0D	; 13
+ 35e:	b1 f5       	brne	.+108    	; 0x3cc <ESP_ReadResponseLine+0x1fa>
+ 360:	21 2f       	mov	r18, r17
+ 362:	30 e0       	ldi	r19, 0x00	; 0
+ 364:	f9 01       	movw	r30, r18
+ 366:	e6 50       	subi	r30, 0x06	; 6
+ 368:	ff 4f       	sbci	r31, 0xFF	; 255
+ 36a:	40 81       	ld	r20, Z
+ 36c:	4c 32       	cpi	r20, 0x2C	; 44
+ 36e:	49 f0       	breq	.+18     	; 0x382 <ESP_ReadResponseLine+0x1b0>
+ 370:	1f 5f       	subi	r17, 0xFF	; 255
+ 372:	21 2f       	mov	r18, r17
+ 374:	30 e0       	ldi	r19, 0x00	; 0
+ 376:	f9 01       	movw	r30, r18
+ 378:	e6 50       	subi	r30, 0x06	; 6
+ 37a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 37c:	40 81       	ld	r20, Z
+ 37e:	4c 32       	cpi	r20, 0x2C	; 44
+ 380:	b9 f7       	brne	.-18     	; 0x370 <ESP_ReadResponseLine+0x19e>
+ 382:	1f 5f       	subi	r17, 0xFF	; 255
+ 384:	f9 01       	movw	r30, r18
+ 386:	e6 50       	subi	r30, 0x06	; 6
+ 388:	ff 4f       	sbci	r31, 0xFF	; 255
+ 38a:	10 82       	st	Z, r1
+ 38c:	5d 2d       	mov	r21, r13
+ 38e:	1e c0       	rjmp	.+60     	; 0x3cc <ESP_ReadResponseLine+0x1fa>
+ 390:	f9 01       	movw	r30, r18
+ 392:	e6 50       	subi	r30, 0x06	; 6
+ 394:	ff 4f       	sbci	r31, 0xFF	; 255
+ 396:	40 81       	ld	r20, Z
+ 398:	4e 33       	cpi	r20, 0x3E	; 62
+ 39a:	b9 f0       	breq	.+46     	; 0x3ca <ESP_ReadResponseLine+0x1f8>
+ 39c:	f9 01       	movw	r30, r18
+ 39e:	e6 50       	subi	r30, 0x06	; 6
+ 3a0:	ff 4f       	sbci	r31, 0xFF	; 255
+ 3a2:	20 81       	ld	r18, Z
+ 3a4:	23 35       	cpi	r18, 0x53	; 83
+ 3a6:	91 f4       	brne	.+36     	; 0x3cc <ESP_ReadResponseLine+0x1fa>
+ 3a8:	fc 01       	movw	r30, r24
+ 3aa:	e6 50       	subi	r30, 0x06	; 6
+ 3ac:	ff 4f       	sbci	r31, 0xFF	; 255
+ 3ae:	20 81       	ld	r18, Z
+ 3b0:	25 34       	cpi	r18, 0x45	; 69
+ 3b2:	61 f4       	brne	.+24     	; 0x3cc <ESP_ReadResponseLine+0x1fa>
+ 3b4:	fc 01       	movw	r30, r24
+ 3b6:	e6 50       	subi	r30, 0x06	; 6
+ 3b8:	ff 4f       	sbci	r31, 0xFF	; 255
+ 3ba:	20 81       	ld	r18, Z
+ 3bc:	2e 34       	cpi	r18, 0x4E	; 78
+ 3be:	31 f4       	brne	.+12     	; 0x3cc <ESP_ReadResponseLine+0x1fa>
+ 3c0:	28 81       	ld	r18, Y
+ 3c2:	2d 30       	cpi	r18, 0x0D	; 13
+ 3c4:	19 f4       	brne	.+6      	; 0x3cc <ESP_ReadResponseLine+0x1fa>
+ 3c6:	5d 2d       	mov	r21, r13
+ 3c8:	01 c0       	rjmp	.+2      	; 0x3cc <ESP_ReadResponseLine+0x1fa>
+ 3ca:	5d 2d       	mov	r21, r13
+ 3cc:	01 96       	adiw	r24, 0x01	; 1
+ 3ce:	86 17       	cp	r24, r22
+ 3d0:	97 07       	cpc	r25, r23
+ 3d2:	09 f0       	breq	.+2      	; 0x3d6 <ESP_ReadResponseLine+0x204>
+ 3d4:	27 cf       	rjmp	.-434    	; 0x224 <ESP_ReadResponseLine+0x52>
+ 3d6:	50 93 f8 00 	sts	0x00F8, r21	; 0x8000f8 <ReceivedFullResponse>
+ 3da:	f0 92 f7 00 	sts	0x00F7, r15	; 0x8000f7 <CorrectDataReceived>
+ 3de:	80 91 f8 00 	lds	r24, 0x00F8	; 0x8000f8 <ReceivedFullResponse>
+ 3e2:	88 23       	and	r24, r24
+ 3e4:	59 f0       	breq	.+22     	; 0x3fc <ESP_ReadResponseLine+0x22a>
+ 3e6:	81 e0       	ldi	r24, 0x01	; 1
+ 3e8:	80 0f       	add	r24, r16
+ 3ea:	80 93 f9 00 	sts	0x00F9, r24	; 0x8000f9 <ResponseBufferMain_Index>
+ 3ee:	e0 2f       	mov	r30, r16
+ 3f0:	f0 e0       	ldi	r31, 0x00	; 0
+ 3f2:	e6 50       	subi	r30, 0x06	; 6
+ 3f4:	ff 4f       	sbci	r31, 0xFF	; 255
+ 3f6:	10 82       	st	Z, r1
+ 3f8:	81 e0       	ldi	r24, 0x01	; 1
+ 3fa:	01 c0       	rjmp	.+2      	; 0x3fe <ESP_ReadResponseLine+0x22c>
+ 3fc:	82 e0       	ldi	r24, 0x02	; 2
+ 3fe:	df 91       	pop	r29
+ 400:	cf 91       	pop	r28
+ 402:	1f 91       	pop	r17
+ 404:	0f 91       	pop	r16
+ 406:	ff 90       	pop	r15
+ 408:	df 90       	pop	r13
+ 40a:	cf 90       	pop	r12
+ 40c:	bf 90       	pop	r11
+ 40e:	af 90       	pop	r10
+ 410:	9f 90       	pop	r9
+ 412:	8f 90       	pop	r8
+ 414:	08 95       	ret
+
+00000416 <ESP_FillResponseBuffer>:
+ 416:	e0 91 f9 00 	lds	r30, 0x00F9	; 0x8000f9 <ResponseBufferMain_Index>
+ 41a:	91 e0       	ldi	r25, 0x01	; 1
+ 41c:	9e 0f       	add	r25, r30
+ 41e:	90 93 f9 00 	sts	0x00F9, r25	; 0x8000f9 <ResponseBufferMain_Index>
+ 422:	f0 e0       	ldi	r31, 0x00	; 0
+ 424:	e6 50       	subi	r30, 0x06	; 6
+ 426:	ff 4f       	sbci	r31, 0xFF	; 255
+ 428:	80 83       	st	Z, r24
+ 42a:	9a 3f       	cpi	r25, 0xFA	; 250
+ 42c:	11 f4       	brne	.+4      	; 0x432 <ESP_FillResponseBuffer+0x1c>
+ 42e:	10 92 f9 00 	sts	0x00F9, r1	; 0x8000f9 <ResponseBufferMain_Index>
+ 432:	08 95       	ret
+
+00000434 <ESP_ClearResponseBuffer>:
+ 434:	20 91 f9 00 	lds	r18, 0x00F9	; 0x8000f9 <ResponseBufferMain_Index>
+ 438:	22 23       	and	r18, r18
+ 43a:	71 f0       	breq	.+28     	; 0x458 <ESP_ClearResponseBuffer+0x24>
+ 43c:	21 50       	subi	r18, 0x01	; 1
+ 43e:	30 e0       	ldi	r19, 0x00	; 0
+ 440:	2f 5f       	subi	r18, 0xFF	; 255
+ 442:	3f 4f       	sbci	r19, 0xFF	; 255
+ 444:	80 e0       	ldi	r24, 0x00	; 0
+ 446:	90 e0       	ldi	r25, 0x00	; 0
+ 448:	fc 01       	movw	r30, r24
+ 44a:	e6 50       	subi	r30, 0x06	; 6
+ 44c:	ff 4f       	sbci	r31, 0xFF	; 255
+ 44e:	10 82       	st	Z, r1
+ 450:	01 96       	adiw	r24, 0x01	; 1
+ 452:	82 17       	cp	r24, r18
+ 454:	93 07       	cpc	r25, r19
+ 456:	c1 f7       	brne	.-16     	; 0x448 <ESP_ClearResponseBuffer+0x14>
+ 458:	10 92 f9 00 	sts	0x00F9, r1	; 0x8000f9 <ResponseBufferMain_Index>
+ 45c:	10 92 f8 00 	sts	0x00F8, r1	; 0x8000f8 <ReceivedFullResponse>
+ 460:	10 92 f7 00 	sts	0x00F7, r1	; 0x8000f7 <CorrectDataReceived>
+ 464:	08 95       	ret
+
+00000466 <ESP_Enable_multiple_connections>:
+ 466:	0f 93       	push	r16
+ 468:	1f 93       	push	r17
+ 46a:	cf 93       	push	r28
+ 46c:	df 93       	push	r29
+ 46e:	cd b7       	in	r28, 0x3d	; 61
+ 470:	de b7       	in	r29, 0x3e	; 62
+ 472:	2b 97       	sbiw	r28, 0x0b	; 11
+ 474:	0f b6       	in	r0, 0x3f	; 63
+ 476:	f8 94       	cli
+ 478:	de bf       	out	0x3e, r29	; 62
+ 47a:	0f be       	out	0x3f, r0	; 63
+ 47c:	cd bf       	out	0x3d, r28	; 61
+ 47e:	8c 01       	movw	r16, r24
+ 480:	8b e0       	ldi	r24, 0x0B	; 11
+ 482:	e9 e8       	ldi	r30, 0x89	; 137
+ 484:	f0 e0       	ldi	r31, 0x00	; 0
+ 486:	de 01       	movw	r26, r28
+ 488:	11 96       	adiw	r26, 0x01	; 1
+ 48a:	01 90       	ld	r0, Z+
+ 48c:	0d 92       	st	X+, r0
+ 48e:	8a 95       	dec	r24
+ 490:	e1 f7       	brne	.-8      	; 0x48a <ESP_Enable_multiple_connections+0x24>
+ 492:	80 91 f6 00 	lds	r24, 0x00F6	; 0x8000f6 <RequestSent.1811>
+ 496:	81 11       	cpse	r24, r1
+ 498:	45 c0       	rjmp	.+138    	; 0x524 <ESP_Enable_multiple_connections+0xbe>
+ 49a:	81 e0       	ldi	r24, 0x01	; 1
+ 49c:	80 93 f6 00 	sts	0x00F6, r24	; 0x8000f6 <RequestSent.1811>
+ 4a0:	0e 94 1a 02 	call	0x434	; 0x434 <ESP_ClearResponseBuffer>
+ 4a4:	29 81       	ldd	r18, Y+1	; 0x01
+ 4a6:	22 23       	and	r18, r18
+ 4a8:	a1 f0       	breq	.+40     	; 0x4d2 <ESP_Enable_multiple_connections+0x6c>
+ 4aa:	80 e0       	ldi	r24, 0x00	; 0
+ 4ac:	90 e0       	ldi	r25, 0x00	; 0
+ 4ae:	e0 e0       	ldi	r30, 0x00	; 0
+ 4b0:	ef 5f       	subi	r30, 0xFF	; 255
+ 4b2:	dc 01       	movw	r26, r24
+ 4b4:	ac 50       	subi	r26, 0x0C	; 12
+ 4b6:	be 4f       	sbci	r27, 0xFE	; 254
+ 4b8:	2c 93       	st	X, r18
+ 4ba:	8e 2f       	mov	r24, r30
+ 4bc:	90 e0       	ldi	r25, 0x00	; 0
+ 4be:	a1 e0       	ldi	r26, 0x01	; 1
+ 4c0:	b0 e0       	ldi	r27, 0x00	; 0
+ 4c2:	ac 0f       	add	r26, r28
+ 4c4:	bd 1f       	adc	r27, r29
+ 4c6:	a8 0f       	add	r26, r24
+ 4c8:	b9 1f       	adc	r27, r25
+ 4ca:	2c 91       	ld	r18, X
+ 4cc:	21 11       	cpse	r18, r1
+ 4ce:	f0 cf       	rjmp	.-32     	; 0x4b0 <ESP_Enable_multiple_connections+0x4a>
+ 4d0:	01 c0       	rjmp	.+2      	; 0x4d4 <ESP_Enable_multiple_connections+0x6e>
+ 4d2:	e0 e0       	ldi	r30, 0x00	; 0
+ 4d4:	d8 01       	movw	r26, r16
+ 4d6:	9c 91       	ld	r25, X
+ 4d8:	99 23       	and	r25, r25
+ 4da:	61 f0       	breq	.+24     	; 0x4f4 <ESP_Enable_multiple_connections+0x8e>
+ 4dc:	11 96       	adiw	r26, 0x01	; 1
+ 4de:	21 e0       	ldi	r18, 0x01	; 1
+ 4e0:	2e 0f       	add	r18, r30
+ 4e2:	f0 e0       	ldi	r31, 0x00	; 0
+ 4e4:	ec 50       	subi	r30, 0x0C	; 12
+ 4e6:	fe 4f       	sbci	r31, 0xFE	; 254
+ 4e8:	90 83       	st	Z, r25
+ 4ea:	9d 91       	ld	r25, X+
+ 4ec:	e2 2f       	mov	r30, r18
+ 4ee:	91 11       	cpse	r25, r1
+ 4f0:	f6 cf       	rjmp	.-20     	; 0x4de <ESP_Enable_multiple_connections+0x78>
+ 4f2:	01 c0       	rjmp	.+2      	; 0x4f6 <ESP_Enable_multiple_connections+0x90>
+ 4f4:	2e 2f       	mov	r18, r30
+ 4f6:	e2 2f       	mov	r30, r18
+ 4f8:	f0 e0       	ldi	r31, 0x00	; 0
+ 4fa:	ec 50       	subi	r30, 0x0C	; 12
+ 4fc:	fe 4f       	sbci	r31, 0xFE	; 254
+ 4fe:	8d e0       	ldi	r24, 0x0D	; 13
+ 500:	80 83       	st	Z, r24
+ 502:	e1 e0       	ldi	r30, 0x01	; 1
+ 504:	e2 0f       	add	r30, r18
+ 506:	f0 e0       	ldi	r31, 0x00	; 0
+ 508:	ec 50       	subi	r30, 0x0C	; 12
+ 50a:	fe 4f       	sbci	r31, 0xFE	; 254
+ 50c:	8a e0       	ldi	r24, 0x0A	; 10
+ 50e:	80 83       	st	Z, r24
+ 510:	2e 5f       	subi	r18, 0xFE	; 254
+ 512:	e2 2f       	mov	r30, r18
+ 514:	f0 e0       	ldi	r31, 0x00	; 0
+ 516:	ec 50       	subi	r30, 0x0C	; 12
+ 518:	fe 4f       	sbci	r31, 0xFE	; 254
+ 51a:	10 82       	st	Z, r1
+ 51c:	84 ef       	ldi	r24, 0xF4	; 244
+ 51e:	91 e0       	ldi	r25, 0x01	; 1
+ 520:	0e 94 b2 00 	call	0x164	; 0x164 <UART_Write_String>
+ 524:	0e 94 e9 00 	call	0x1d2	; 0x1d2 <ESP_ReadResponseLine>
+ 528:	88 23       	and	r24, r24
+ 52a:	c1 f0       	breq	.+48     	; 0x55c <ESP_Enable_multiple_connections+0xf6>
+ 52c:	0e 94 e9 00 	call	0x1d2	; 0x1d2 <ESP_ReadResponseLine>
+ 530:	82 30       	cpi	r24, 0x02	; 2
+ 532:	a1 f0       	breq	.+40     	; 0x55c <ESP_Enable_multiple_connections+0xf6>
+ 534:	80 91 f8 00 	lds	r24, 0x00F8	; 0x8000f8 <ReceivedFullResponse>
+ 538:	88 23       	and	r24, r24
+ 53a:	79 f0       	breq	.+30     	; 0x55a <ESP_Enable_multiple_connections+0xf4>
+ 53c:	0e 94 1a 02 	call	0x434	; 0x434 <ESP_ClearResponseBuffer>
+ 540:	10 92 f6 00 	sts	0x00F6, r1	; 0x8000f6 <RequestSent.1811>
+ 544:	bf e1       	ldi	r27, 0x1F	; 31
+ 546:	2f eb       	ldi	r18, 0xBF	; 191
+ 548:	82 e0       	ldi	r24, 0x02	; 2
+ 54a:	b1 50       	subi	r27, 0x01	; 1
+ 54c:	20 40       	sbci	r18, 0x00	; 0
+ 54e:	80 40       	sbci	r24, 0x00	; 0
+ 550:	e1 f7       	brne	.-8      	; 0x54a <ESP_Enable_multiple_connections+0xe4>
+ 552:	00 c0       	rjmp	.+0      	; 0x554 <ESP_Enable_multiple_connections+0xee>
+ 554:	00 00       	nop
+ 556:	81 e0       	ldi	r24, 0x01	; 1
+ 558:	01 c0       	rjmp	.+2      	; 0x55c <ESP_Enable_multiple_connections+0xf6>
+ 55a:	82 e0       	ldi	r24, 0x02	; 2
+ 55c:	2b 96       	adiw	r28, 0x0b	; 11
+ 55e:	0f b6       	in	r0, 0x3f	; 63
+ 560:	f8 94       	cli
+ 562:	de bf       	out	0x3e, r29	; 62
+ 564:	0f be       	out	0x3f, r0	; 63
+ 566:	cd bf       	out	0x3d, r28	; 61
+ 568:	df 91       	pop	r29
+ 56a:	cf 91       	pop	r28
+ 56c:	1f 91       	pop	r17
+ 56e:	0f 91       	pop	r16
+ 570:	08 95       	ret
+
+00000572 <ESP_Configure_As_server>:
+ 572:	0f 93       	push	r16
+ 574:	1f 93       	push	r17
+ 576:	cf 93       	push	r28
+ 578:	df 93       	push	r29
+ 57a:	cd b7       	in	r28, 0x3d	; 61
+ 57c:	de b7       	in	r29, 0x3e	; 62
+ 57e:	60 97       	sbiw	r28, 0x10	; 16
+ 580:	0f b6       	in	r0, 0x3f	; 63
+ 582:	f8 94       	cli
+ 584:	de bf       	out	0x3e, r29	; 62
+ 586:	0f be       	out	0x3f, r0	; 63
+ 588:	cd bf       	out	0x3d, r28	; 61
+ 58a:	8c 01       	movw	r16, r24
+ 58c:	80 e1       	ldi	r24, 0x10	; 16
+ 58e:	e4 e9       	ldi	r30, 0x94	; 148
+ 590:	f0 e0       	ldi	r31, 0x00	; 0
+ 592:	de 01       	movw	r26, r28
+ 594:	11 96       	adiw	r26, 0x01	; 1
+ 596:	01 90       	ld	r0, Z+
+ 598:	0d 92       	st	X+, r0
+ 59a:	8a 95       	dec	r24
+ 59c:	e1 f7       	brne	.-8      	; 0x596 <ESP_Configure_As_server+0x24>
+ 59e:	80 91 f5 00 	lds	r24, 0x00F5	; 0x8000f5 <RequestSent.1823>
+ 5a2:	81 11       	cpse	r24, r1
+ 5a4:	45 c0       	rjmp	.+138    	; 0x630 <ESP_Configure_As_server+0xbe>
+ 5a6:	81 e0       	ldi	r24, 0x01	; 1
+ 5a8:	80 93 f5 00 	sts	0x00F5, r24	; 0x8000f5 <RequestSent.1823>
+ 5ac:	0e 94 1a 02 	call	0x434	; 0x434 <ESP_ClearResponseBuffer>
+ 5b0:	29 81       	ldd	r18, Y+1	; 0x01
+ 5b2:	22 23       	and	r18, r18
+ 5b4:	a1 f0       	breq	.+40     	; 0x5de <ESP_Configure_As_server+0x6c>
+ 5b6:	80 e0       	ldi	r24, 0x00	; 0
+ 5b8:	90 e0       	ldi	r25, 0x00	; 0
+ 5ba:	e0 e0       	ldi	r30, 0x00	; 0
+ 5bc:	ef 5f       	subi	r30, 0xFF	; 255
+ 5be:	dc 01       	movw	r26, r24
+ 5c0:	ac 50       	subi	r26, 0x0C	; 12
+ 5c2:	be 4f       	sbci	r27, 0xFE	; 254
+ 5c4:	2c 93       	st	X, r18
+ 5c6:	8e 2f       	mov	r24, r30
+ 5c8:	90 e0       	ldi	r25, 0x00	; 0
+ 5ca:	a1 e0       	ldi	r26, 0x01	; 1
+ 5cc:	b0 e0       	ldi	r27, 0x00	; 0
+ 5ce:	ac 0f       	add	r26, r28
+ 5d0:	bd 1f       	adc	r27, r29
+ 5d2:	a8 0f       	add	r26, r24
+ 5d4:	b9 1f       	adc	r27, r25
+ 5d6:	2c 91       	ld	r18, X
+ 5d8:	21 11       	cpse	r18, r1
+ 5da:	f0 cf       	rjmp	.-32     	; 0x5bc <ESP_Configure_As_server+0x4a>
+ 5dc:	01 c0       	rjmp	.+2      	; 0x5e0 <ESP_Configure_As_server+0x6e>
+ 5de:	e0 e0       	ldi	r30, 0x00	; 0
+ 5e0:	d8 01       	movw	r26, r16
+ 5e2:	9c 91       	ld	r25, X
+ 5e4:	99 23       	and	r25, r25
+ 5e6:	61 f0       	breq	.+24     	; 0x600 <ESP_Configure_As_server+0x8e>
+ 5e8:	11 96       	adiw	r26, 0x01	; 1
+ 5ea:	21 e0       	ldi	r18, 0x01	; 1
+ 5ec:	2e 0f       	add	r18, r30
+ 5ee:	f0 e0       	ldi	r31, 0x00	; 0
+ 5f0:	ec 50       	subi	r30, 0x0C	; 12
+ 5f2:	fe 4f       	sbci	r31, 0xFE	; 254
+ 5f4:	90 83       	st	Z, r25
+ 5f6:	9d 91       	ld	r25, X+
+ 5f8:	e2 2f       	mov	r30, r18
+ 5fa:	91 11       	cpse	r25, r1
+ 5fc:	f6 cf       	rjmp	.-20     	; 0x5ea <ESP_Configure_As_server+0x78>
+ 5fe:	01 c0       	rjmp	.+2      	; 0x602 <ESP_Configure_As_server+0x90>
+ 600:	2e 2f       	mov	r18, r30
+ 602:	e2 2f       	mov	r30, r18
+ 604:	f0 e0       	ldi	r31, 0x00	; 0
+ 606:	ec 50       	subi	r30, 0x0C	; 12
+ 608:	fe 4f       	sbci	r31, 0xFE	; 254
+ 60a:	8d e0       	ldi	r24, 0x0D	; 13
+ 60c:	80 83       	st	Z, r24
+ 60e:	e1 e0       	ldi	r30, 0x01	; 1
+ 610:	e2 0f       	add	r30, r18
+ 612:	f0 e0       	ldi	r31, 0x00	; 0
+ 614:	ec 50       	subi	r30, 0x0C	; 12
+ 616:	fe 4f       	sbci	r31, 0xFE	; 254
+ 618:	8a e0       	ldi	r24, 0x0A	; 10
+ 61a:	80 83       	st	Z, r24
+ 61c:	2e 5f       	subi	r18, 0xFE	; 254
+ 61e:	e2 2f       	mov	r30, r18
+ 620:	f0 e0       	ldi	r31, 0x00	; 0
+ 622:	ec 50       	subi	r30, 0x0C	; 12
+ 624:	fe 4f       	sbci	r31, 0xFE	; 254
+ 626:	10 82       	st	Z, r1
+ 628:	84 ef       	ldi	r24, 0xF4	; 244
+ 62a:	91 e0       	ldi	r25, 0x01	; 1
+ 62c:	0e 94 b2 00 	call	0x164	; 0x164 <UART_Write_String>
+ 630:	0e 94 e9 00 	call	0x1d2	; 0x1d2 <ESP_ReadResponseLine>
+ 634:	88 23       	and	r24, r24
+ 636:	c1 f0       	breq	.+48     	; 0x668 <ESP_Configure_As_server+0xf6>
+ 638:	0e 94 e9 00 	call	0x1d2	; 0x1d2 <ESP_ReadResponseLine>
+ 63c:	82 30       	cpi	r24, 0x02	; 2
+ 63e:	a1 f0       	breq	.+40     	; 0x668 <ESP_Configure_As_server+0xf6>
+ 640:	80 91 f8 00 	lds	r24, 0x00F8	; 0x8000f8 <ReceivedFullResponse>
+ 644:	88 23       	and	r24, r24
+ 646:	79 f0       	breq	.+30     	; 0x666 <ESP_Configure_As_server+0xf4>
+ 648:	0e 94 1a 02 	call	0x434	; 0x434 <ESP_ClearResponseBuffer>
+ 64c:	10 92 f5 00 	sts	0x00F5, r1	; 0x8000f5 <RequestSent.1823>
+ 650:	bf e1       	ldi	r27, 0x1F	; 31
+ 652:	2f eb       	ldi	r18, 0xBF	; 191
+ 654:	82 e0       	ldi	r24, 0x02	; 2
+ 656:	b1 50       	subi	r27, 0x01	; 1
+ 658:	20 40       	sbci	r18, 0x00	; 0
+ 65a:	80 40       	sbci	r24, 0x00	; 0
+ 65c:	e1 f7       	brne	.-8      	; 0x656 <ESP_Configure_As_server+0xe4>
+ 65e:	00 c0       	rjmp	.+0      	; 0x660 <ESP_Configure_As_server+0xee>
+ 660:	00 00       	nop
+ 662:	81 e0       	ldi	r24, 0x01	; 1
+ 664:	01 c0       	rjmp	.+2      	; 0x668 <ESP_Configure_As_server+0xf6>
+ 666:	82 e0       	ldi	r24, 0x02	; 2
+ 668:	60 96       	adiw	r28, 0x10	; 16
+ 66a:	0f b6       	in	r0, 0x3f	; 63
+ 66c:	f8 94       	cli
+ 66e:	de bf       	out	0x3e, r29	; 62
+ 670:	0f be       	out	0x3f, r0	; 63
+ 672:	cd bf       	out	0x3d, r28	; 61
+ 674:	df 91       	pop	r29
+ 676:	cf 91       	pop	r28
+ 678:	1f 91       	pop	r17
+ 67a:	0f 91       	pop	r16
+ 67c:	08 95       	ret
+
+0000067e <ESP_SelectMode>:
+ 67e:	1f 93       	push	r17
+ 680:	cf 93       	push	r28
+ 682:	df 93       	push	r29
+ 684:	cd b7       	in	r28, 0x3d	; 61
+ 686:	de b7       	in	r29, 0x3e	; 62
+ 688:	2b 97       	sbiw	r28, 0x0b	; 11
+ 68a:	0f b6       	in	r0, 0x3f	; 63
+ 68c:	f8 94       	cli
+ 68e:	de bf       	out	0x3e, r29	; 62
+ 690:	0f be       	out	0x3f, r0	; 63
+ 692:	cd bf       	out	0x3d, r28	; 61
+ 694:	18 2f       	mov	r17, r24
+ 696:	8b e0       	ldi	r24, 0x0B	; 11
+ 698:	e4 ea       	ldi	r30, 0xA4	; 164
+ 69a:	f0 e0       	ldi	r31, 0x00	; 0
+ 69c:	de 01       	movw	r26, r28
+ 69e:	11 96       	adiw	r26, 0x01	; 1
+ 6a0:	01 90       	ld	r0, Z+
+ 6a2:	0d 92       	st	X+, r0
+ 6a4:	8a 95       	dec	r24
+ 6a6:	e1 f7       	brne	.-8      	; 0x6a0 <ESP_SelectMode+0x22>
+ 6a8:	80 91 f4 00 	lds	r24, 0x00F4	; 0x8000f4 <RequestSent.1845>
+ 6ac:	81 11       	cpse	r24, r1
+ 6ae:	3a c0       	rjmp	.+116    	; 0x724 <ESP_SelectMode+0xa6>
+ 6b0:	81 e0       	ldi	r24, 0x01	; 1
+ 6b2:	80 93 f4 00 	sts	0x00F4, r24	; 0x8000f4 <RequestSent.1845>
+ 6b6:	0e 94 1a 02 	call	0x434	; 0x434 <ESP_ClearResponseBuffer>
+ 6ba:	29 81       	ldd	r18, Y+1	; 0x01
+ 6bc:	22 23       	and	r18, r18
+ 6be:	a1 f0       	breq	.+40     	; 0x6e8 <ESP_SelectMode+0x6a>
+ 6c0:	80 e0       	ldi	r24, 0x00	; 0
+ 6c2:	90 e0       	ldi	r25, 0x00	; 0
+ 6c4:	e0 e0       	ldi	r30, 0x00	; 0
+ 6c6:	ef 5f       	subi	r30, 0xFF	; 255
+ 6c8:	dc 01       	movw	r26, r24
+ 6ca:	ac 50       	subi	r26, 0x0C	; 12
+ 6cc:	be 4f       	sbci	r27, 0xFE	; 254
+ 6ce:	2c 93       	st	X, r18
+ 6d0:	8e 2f       	mov	r24, r30
+ 6d2:	90 e0       	ldi	r25, 0x00	; 0
+ 6d4:	a1 e0       	ldi	r26, 0x01	; 1
+ 6d6:	b0 e0       	ldi	r27, 0x00	; 0
+ 6d8:	ac 0f       	add	r26, r28
+ 6da:	bd 1f       	adc	r27, r29
+ 6dc:	a8 0f       	add	r26, r24
+ 6de:	b9 1f       	adc	r27, r25
+ 6e0:	2c 91       	ld	r18, X
+ 6e2:	21 11       	cpse	r18, r1
+ 6e4:	f0 cf       	rjmp	.-32     	; 0x6c6 <ESP_SelectMode+0x48>
+ 6e6:	03 c0       	rjmp	.+6      	; 0x6ee <ESP_SelectMode+0x70>
+ 6e8:	80 e0       	ldi	r24, 0x00	; 0
+ 6ea:	90 e0       	ldi	r25, 0x00	; 0
+ 6ec:	e0 e0       	ldi	r30, 0x00	; 0
+ 6ee:	dc 01       	movw	r26, r24
+ 6f0:	ac 50       	subi	r26, 0x0C	; 12
+ 6f2:	be 4f       	sbci	r27, 0xFE	; 254
+ 6f4:	1c 93       	st	X, r17
+ 6f6:	a1 e0       	ldi	r26, 0x01	; 1
+ 6f8:	ae 0f       	add	r26, r30
+ 6fa:	b0 e0       	ldi	r27, 0x00	; 0
+ 6fc:	ac 50       	subi	r26, 0x0C	; 12
+ 6fe:	be 4f       	sbci	r27, 0xFE	; 254
+ 700:	8d e0       	ldi	r24, 0x0D	; 13
+ 702:	8c 93       	st	X, r24
+ 704:	a2 e0       	ldi	r26, 0x02	; 2
+ 706:	ae 0f       	add	r26, r30
+ 708:	b0 e0       	ldi	r27, 0x00	; 0
+ 70a:	ac 50       	subi	r26, 0x0C	; 12
+ 70c:	be 4f       	sbci	r27, 0xFE	; 254
+ 70e:	8a e0       	ldi	r24, 0x0A	; 10
+ 710:	8c 93       	st	X, r24
+ 712:	ed 5f       	subi	r30, 0xFD	; 253
+ 714:	f0 e0       	ldi	r31, 0x00	; 0
+ 716:	ec 50       	subi	r30, 0x0C	; 12
+ 718:	fe 4f       	sbci	r31, 0xFE	; 254
+ 71a:	10 82       	st	Z, r1
+ 71c:	84 ef       	ldi	r24, 0xF4	; 244
+ 71e:	91 e0       	ldi	r25, 0x01	; 1
+ 720:	0e 94 b2 00 	call	0x164	; 0x164 <UART_Write_String>
+ 724:	0e 94 e9 00 	call	0x1d2	; 0x1d2 <ESP_ReadResponseLine>
+ 728:	88 23       	and	r24, r24
+ 72a:	c1 f0       	breq	.+48     	; 0x75c <ESP_SelectMode+0xde>
+ 72c:	0e 94 e9 00 	call	0x1d2	; 0x1d2 <ESP_ReadResponseLine>
+ 730:	82 30       	cpi	r24, 0x02	; 2
+ 732:	a1 f0       	breq	.+40     	; 0x75c <ESP_SelectMode+0xde>
+ 734:	80 91 f8 00 	lds	r24, 0x00F8	; 0x8000f8 <ReceivedFullResponse>
+ 738:	88 23       	and	r24, r24
+ 73a:	79 f0       	breq	.+30     	; 0x75a <ESP_SelectMode+0xdc>
+ 73c:	0e 94 1a 02 	call	0x434	; 0x434 <ESP_ClearResponseBuffer>
+ 740:	10 92 f4 00 	sts	0x00F4, r1	; 0x8000f4 <RequestSent.1845>
+ 744:	2f e1       	ldi	r18, 0x1F	; 31
+ 746:	8f eb       	ldi	r24, 0xBF	; 191
+ 748:	92 e0       	ldi	r25, 0x02	; 2
+ 74a:	21 50       	subi	r18, 0x01	; 1
+ 74c:	80 40       	sbci	r24, 0x00	; 0
+ 74e:	90 40       	sbci	r25, 0x00	; 0
+ 750:	e1 f7       	brne	.-8      	; 0x74a <ESP_SelectMode+0xcc>
+ 752:	00 c0       	rjmp	.+0      	; 0x754 <ESP_SelectMode+0xd6>
+ 754:	00 00       	nop
+ 756:	81 e0       	ldi	r24, 0x01	; 1
+ 758:	01 c0       	rjmp	.+2      	; 0x75c <ESP_SelectMode+0xde>
+ 75a:	82 e0       	ldi	r24, 0x02	; 2
+ 75c:	2b 96       	adiw	r28, 0x0b	; 11
+ 75e:	0f b6       	in	r0, 0x3f	; 63
+ 760:	f8 94       	cli
+ 762:	de bf       	out	0x3e, r29	; 62
+ 764:	0f be       	out	0x3f, r0	; 63
+ 766:	cd bf       	out	0x3d, r28	; 61
+ 768:	df 91       	pop	r29
+ 76a:	cf 91       	pop	r28
+ 76c:	1f 91       	pop	r17
+ 76e:	08 95       	ret
+
+00000770 <ESP_CreateAccesPoint>:
+ 770:	af 92       	push	r10
+ 772:	bf 92       	push	r11
+ 774:	cf 92       	push	r12
+ 776:	df 92       	push	r13
+ 778:	ef 92       	push	r14
+ 77a:	ff 92       	push	r15
+ 77c:	0f 93       	push	r16
+ 77e:	1f 93       	push	r17
+ 780:	cf 93       	push	r28
+ 782:	df 93       	push	r29
+ 784:	cd b7       	in	r28, 0x3d	; 61
+ 786:	de b7       	in	r29, 0x3e	; 62
+ 788:	2b 97       	sbiw	r28, 0x0b	; 11
+ 78a:	0f b6       	in	r0, 0x3f	; 63
+ 78c:	f8 94       	cli
+ 78e:	de bf       	out	0x3e, r29	; 62
+ 790:	0f be       	out	0x3f, r0	; 63
+ 792:	cd bf       	out	0x3d, r28	; 61
+ 794:	5c 01       	movw	r10, r24
+ 796:	6b 01       	movw	r12, r22
+ 798:	7a 01       	movw	r14, r20
+ 79a:	89 01       	movw	r16, r18
+ 79c:	8b e0       	ldi	r24, 0x0B	; 11
+ 79e:	ef ea       	ldi	r30, 0xAF	; 175
+ 7a0:	f0 e0       	ldi	r31, 0x00	; 0
+ 7a2:	de 01       	movw	r26, r28
+ 7a4:	11 96       	adiw	r26, 0x01	; 1
+ 7a6:	01 90       	ld	r0, Z+
+ 7a8:	0d 92       	st	X+, r0
+ 7aa:	8a 95       	dec	r24
+ 7ac:	e1 f7       	brne	.-8      	; 0x7a6 <ESP_CreateAccesPoint+0x36>
+ 7ae:	80 91 f3 00 	lds	r24, 0x00F3	; 0x8000f3 <RequestSent.1857>
+ 7b2:	81 11       	cpse	r24, r1
+ 7b4:	a1 c0       	rjmp	.+322    	; 0x8f8 <__stack+0x99>
+ 7b6:	81 e0       	ldi	r24, 0x01	; 1
+ 7b8:	80 93 f3 00 	sts	0x00F3, r24	; 0x8000f3 <RequestSent.1857>
+ 7bc:	0e 94 1a 02 	call	0x434	; 0x434 <ESP_ClearResponseBuffer>
+ 7c0:	9e 01       	movw	r18, r28
+ 7c2:	2f 5f       	subi	r18, 0xFF	; 255
+ 7c4:	3f 4f       	sbci	r19, 0xFF	; 255
+ 7c6:	ae 01       	movw	r20, r28
+ 7c8:	44 5f       	subi	r20, 0xF4	; 244
+ 7ca:	5f 4f       	sbci	r21, 0xFF	; 255
+ 7cc:	f9 01       	movw	r30, r18
+ 7ce:	df 01       	movw	r26, r30
+ 7d0:	a2 1b       	sub	r26, r18
+ 7d2:	b3 0b       	sbc	r27, r19
+ 7d4:	81 91       	ld	r24, Z+
+ 7d6:	ac 50       	subi	r26, 0x0C	; 12
+ 7d8:	be 4f       	sbci	r27, 0xFE	; 254
+ 7da:	8c 93       	st	X, r24
+ 7dc:	e4 17       	cp	r30, r20
+ 7de:	f5 07       	cpc	r31, r21
+ 7e0:	b1 f7       	brne	.-20     	; 0x7ce <ESP_CreateAccesPoint+0x5e>
+ 7e2:	d5 01       	movw	r26, r10
+ 7e4:	8c 91       	ld	r24, X
+ 7e6:	88 23       	and	r24, r24
+ 7e8:	89 f0       	breq	.+34     	; 0x80c <ESP_CreateAccesPoint+0x9c>
+ 7ea:	bf ef       	ldi	r27, 0xFF	; 255
+ 7ec:	ab 1a       	sub	r10, r27
+ 7ee:	bb 0a       	sbc	r11, r27
+ 7f0:	ea e0       	ldi	r30, 0x0A	; 10
+ 7f2:	a1 e0       	ldi	r26, 0x01	; 1
+ 7f4:	ae 0f       	add	r26, r30
+ 7f6:	f0 e0       	ldi	r31, 0x00	; 0
+ 7f8:	ec 50       	subi	r30, 0x0C	; 12
+ 7fa:	fe 4f       	sbci	r31, 0xFE	; 254
+ 7fc:	80 83       	st	Z, r24
+ 7fe:	f5 01       	movw	r30, r10
+ 800:	81 91       	ld	r24, Z+
+ 802:	5f 01       	movw	r10, r30
+ 804:	ea 2f       	mov	r30, r26
+ 806:	81 11       	cpse	r24, r1
+ 808:	f4 cf       	rjmp	.-24     	; 0x7f2 <ESP_CreateAccesPoint+0x82>
+ 80a:	01 c0       	rjmp	.+2      	; 0x80e <ESP_CreateAccesPoint+0x9e>
+ 80c:	aa e0       	ldi	r26, 0x0A	; 10
+ 80e:	ea 2f       	mov	r30, r26
+ 810:	f0 e0       	ldi	r31, 0x00	; 0
+ 812:	ec 50       	subi	r30, 0x0C	; 12
+ 814:	fe 4f       	sbci	r31, 0xFE	; 254
+ 816:	82 e2       	ldi	r24, 0x22	; 34
+ 818:	80 83       	st	Z, r24
+ 81a:	e1 e0       	ldi	r30, 0x01	; 1
+ 81c:	ea 0f       	add	r30, r26
+ 81e:	f0 e0       	ldi	r31, 0x00	; 0
+ 820:	ec 50       	subi	r30, 0x0C	; 12
+ 822:	fe 4f       	sbci	r31, 0xFE	; 254
+ 824:	9c e2       	ldi	r25, 0x2C	; 44
+ 826:	90 83       	st	Z, r25
+ 828:	e3 e0       	ldi	r30, 0x03	; 3
+ 82a:	ea 0f       	add	r30, r26
+ 82c:	ae 5f       	subi	r26, 0xFE	; 254
+ 82e:	b0 e0       	ldi	r27, 0x00	; 0
+ 830:	ac 50       	subi	r26, 0x0C	; 12
+ 832:	be 4f       	sbci	r27, 0xFE	; 254
+ 834:	8c 93       	st	X, r24
+ 836:	d6 01       	movw	r26, r12
+ 838:	8c 91       	ld	r24, X
+ 83a:	88 23       	and	r24, r24
+ 83c:	61 f0       	breq	.+24     	; 0x856 <ESP_CreateAccesPoint+0xe6>
+ 83e:	11 96       	adiw	r26, 0x01	; 1
+ 840:	91 e0       	ldi	r25, 0x01	; 1
+ 842:	9e 0f       	add	r25, r30
+ 844:	f0 e0       	ldi	r31, 0x00	; 0
+ 846:	ec 50       	subi	r30, 0x0C	; 12
+ 848:	fe 4f       	sbci	r31, 0xFE	; 254
+ 84a:	80 83       	st	Z, r24
+ 84c:	8d 91       	ld	r24, X+
+ 84e:	e9 2f       	mov	r30, r25
+ 850:	81 11       	cpse	r24, r1
+ 852:	f6 cf       	rjmp	.-20     	; 0x840 <ESP_CreateAccesPoint+0xd0>
+ 854:	01 c0       	rjmp	.+2      	; 0x858 <ESP_CreateAccesPoint+0xe8>
+ 856:	9e 2f       	mov	r25, r30
+ 858:	e9 2f       	mov	r30, r25
+ 85a:	f0 e0       	ldi	r31, 0x00	; 0
+ 85c:	ec 50       	subi	r30, 0x0C	; 12
+ 85e:	fe 4f       	sbci	r31, 0xFE	; 254
+ 860:	82 e2       	ldi	r24, 0x22	; 34
+ 862:	80 83       	st	Z, r24
+ 864:	e2 e0       	ldi	r30, 0x02	; 2
+ 866:	e9 0f       	add	r30, r25
+ 868:	a1 e0       	ldi	r26, 0x01	; 1
+ 86a:	a9 0f       	add	r26, r25
+ 86c:	b0 e0       	ldi	r27, 0x00	; 0
+ 86e:	ac 50       	subi	r26, 0x0C	; 12
+ 870:	be 4f       	sbci	r27, 0xFE	; 254
+ 872:	8c e2       	ldi	r24, 0x2C	; 44
+ 874:	8c 93       	st	X, r24
+ 876:	d7 01       	movw	r26, r14
+ 878:	8c 91       	ld	r24, X
+ 87a:	88 23       	and	r24, r24
+ 87c:	61 f0       	breq	.+24     	; 0x896 <__stack+0x37>
+ 87e:	11 96       	adiw	r26, 0x01	; 1
+ 880:	91 e0       	ldi	r25, 0x01	; 1
+ 882:	9e 0f       	add	r25, r30
+ 884:	f0 e0       	ldi	r31, 0x00	; 0
+ 886:	ec 50       	subi	r30, 0x0C	; 12
+ 888:	fe 4f       	sbci	r31, 0xFE	; 254
+ 88a:	80 83       	st	Z, r24
+ 88c:	8d 91       	ld	r24, X+
+ 88e:	e9 2f       	mov	r30, r25
+ 890:	81 11       	cpse	r24, r1
+ 892:	f6 cf       	rjmp	.-20     	; 0x880 <__stack+0x21>
+ 894:	01 c0       	rjmp	.+2      	; 0x898 <__stack+0x39>
+ 896:	9e 2f       	mov	r25, r30
+ 898:	e1 e0       	ldi	r30, 0x01	; 1
+ 89a:	e9 0f       	add	r30, r25
+ 89c:	a9 2f       	mov	r26, r25
+ 89e:	b0 e0       	ldi	r27, 0x00	; 0
+ 8a0:	ac 50       	subi	r26, 0x0C	; 12
+ 8a2:	be 4f       	sbci	r27, 0xFE	; 254
+ 8a4:	8c e2       	ldi	r24, 0x2C	; 44
+ 8a6:	8c 93       	st	X, r24
+ 8a8:	d8 01       	movw	r26, r16
+ 8aa:	8c 91       	ld	r24, X
+ 8ac:	88 23       	and	r24, r24
+ 8ae:	61 f0       	breq	.+24     	; 0x8c8 <__stack+0x69>
+ 8b0:	11 96       	adiw	r26, 0x01	; 1
+ 8b2:	91 e0       	ldi	r25, 0x01	; 1
+ 8b4:	9e 0f       	add	r25, r30
+ 8b6:	f0 e0       	ldi	r31, 0x00	; 0
+ 8b8:	ec 50       	subi	r30, 0x0C	; 12
+ 8ba:	fe 4f       	sbci	r31, 0xFE	; 254
+ 8bc:	80 83       	st	Z, r24
+ 8be:	8d 91       	ld	r24, X+
+ 8c0:	e9 2f       	mov	r30, r25
+ 8c2:	81 11       	cpse	r24, r1
+ 8c4:	f6 cf       	rjmp	.-20     	; 0x8b2 <__stack+0x53>
+ 8c6:	01 c0       	rjmp	.+2      	; 0x8ca <__stack+0x6b>
+ 8c8:	9e 2f       	mov	r25, r30
+ 8ca:	e9 2f       	mov	r30, r25
+ 8cc:	f0 e0       	ldi	r31, 0x00	; 0
+ 8ce:	ec 50       	subi	r30, 0x0C	; 12
+ 8d0:	fe 4f       	sbci	r31, 0xFE	; 254
+ 8d2:	8d e0       	ldi	r24, 0x0D	; 13
+ 8d4:	80 83       	st	Z, r24
+ 8d6:	e1 e0       	ldi	r30, 0x01	; 1
+ 8d8:	e9 0f       	add	r30, r25
+ 8da:	f0 e0       	ldi	r31, 0x00	; 0
+ 8dc:	ec 50       	subi	r30, 0x0C	; 12
+ 8de:	fe 4f       	sbci	r31, 0xFE	; 254
+ 8e0:	8a e0       	ldi	r24, 0x0A	; 10
+ 8e2:	80 83       	st	Z, r24
+ 8e4:	9e 5f       	subi	r25, 0xFE	; 254
+ 8e6:	e9 2f       	mov	r30, r25
+ 8e8:	f0 e0       	ldi	r31, 0x00	; 0
+ 8ea:	ec 50       	subi	r30, 0x0C	; 12
+ 8ec:	fe 4f       	sbci	r31, 0xFE	; 254
+ 8ee:	10 82       	st	Z, r1
+ 8f0:	84 ef       	ldi	r24, 0xF4	; 244
+ 8f2:	91 e0       	ldi	r25, 0x01	; 1
+ 8f4:	0e 94 b2 00 	call	0x164	; 0x164 <UART_Write_String>
+ 8f8:	0e 94 e9 00 	call	0x1d2	; 0x1d2 <ESP_ReadResponseLine>
+ 8fc:	88 23       	and	r24, r24
+ 8fe:	c1 f0       	breq	.+48     	; 0x930 <__stack+0xd1>
+ 900:	0e 94 e9 00 	call	0x1d2	; 0x1d2 <ESP_ReadResponseLine>
+ 904:	82 30       	cpi	r24, 0x02	; 2
+ 906:	a1 f0       	breq	.+40     	; 0x930 <__stack+0xd1>
+ 908:	80 91 f8 00 	lds	r24, 0x00F8	; 0x8000f8 <ReceivedFullResponse>
+ 90c:	88 23       	and	r24, r24
+ 90e:	79 f0       	breq	.+30     	; 0x92e <__stack+0xcf>
+ 910:	0e 94 1a 02 	call	0x434	; 0x434 <ESP_ClearResponseBuffer>
+ 914:	10 92 f3 00 	sts	0x00F3, r1	; 0x8000f3 <RequestSent.1857>
+ 918:	bf e1       	ldi	r27, 0x1F	; 31
+ 91a:	ef eb       	ldi	r30, 0xBF	; 191
+ 91c:	f2 e0       	ldi	r31, 0x02	; 2
+ 91e:	b1 50       	subi	r27, 0x01	; 1
+ 920:	e0 40       	sbci	r30, 0x00	; 0
+ 922:	f0 40       	sbci	r31, 0x00	; 0
+ 924:	e1 f7       	brne	.-8      	; 0x91e <__stack+0xbf>
+ 926:	00 c0       	rjmp	.+0      	; 0x928 <__stack+0xc9>
+ 928:	00 00       	nop
+ 92a:	81 e0       	ldi	r24, 0x01	; 1
+ 92c:	01 c0       	rjmp	.+2      	; 0x930 <__stack+0xd1>
+ 92e:	82 e0       	ldi	r24, 0x02	; 2
+ 930:	2b 96       	adiw	r28, 0x0b	; 11
+ 932:	0f b6       	in	r0, 0x3f	; 63
+ 934:	f8 94       	cli
+ 936:	de bf       	out	0x3e, r29	; 62
+ 938:	0f be       	out	0x3f, r0	; 63
+ 93a:	cd bf       	out	0x3d, r28	; 61
+ 93c:	df 91       	pop	r29
+ 93e:	cf 91       	pop	r28
+ 940:	1f 91       	pop	r17
+ 942:	0f 91       	pop	r16
+ 944:	ff 90       	pop	r15
+ 946:	ef 90       	pop	r14
+ 948:	df 90       	pop	r13
+ 94a:	cf 90       	pop	r12
+ 94c:	bf 90       	pop	r11
+ 94e:	af 90       	pop	r10
+ 950:	08 95       	ret
+
+00000952 <ESP_StartServer>:
+ 952:	cf 93       	push	r28
+ 954:	df 93       	push	r29
+ 956:	ec 01       	movw	r28, r24
+ 958:	85 ec       	ldi	r24, 0xC5	; 197
+ 95a:	90 e0       	ldi	r25, 0x00	; 0
+ 95c:	0e 94 33 02 	call	0x466	; 0x466 <ESP_Enable_multiple_connections>
+ 960:	81 30       	cpi	r24, 0x01	; 1
+ 962:	d1 f7       	brne	.-12     	; 0x958 <ESP_StartServer+0x6>
+ 964:	ce 01       	movw	r24, r28
+ 966:	0e 94 b9 02 	call	0x572	; 0x572 <ESP_Configure_As_server>
+ 96a:	81 30       	cpi	r24, 0x01	; 1
+ 96c:	d9 f7       	brne	.-10     	; 0x964 <ESP_StartServer+0x12>
+ 96e:	df 91       	pop	r29
+ 970:	cf 91       	pop	r28
+ 972:	08 95       	ret
+
+00000974 <ESP_SendData>:
+ 974:	ef 92       	push	r14
+ 976:	ff 92       	push	r15
+ 978:	0f 93       	push	r16
+ 97a:	1f 93       	push	r17
+ 97c:	cf 93       	push	r28
+ 97e:	df 93       	push	r29
+ 980:	cd b7       	in	r28, 0x3d	; 61
+ 982:	de b7       	in	r29, 0x3e	; 62
+ 984:	2e 97       	sbiw	r28, 0x0e	; 14
+ 986:	0f b6       	in	r0, 0x3f	; 63
+ 988:	f8 94       	cli
+ 98a:	de bf       	out	0x3e, r29	; 62
+ 98c:	0f be       	out	0x3f, r0	; 63
+ 98e:	cd bf       	out	0x3d, r28	; 61
+ 990:	8c 01       	movw	r16, r24
+ 992:	7b 01       	movw	r14, r22
+ 994:	8e e0       	ldi	r24, 0x0E	; 14
+ 996:	ed ed       	ldi	r30, 0xDD	; 221
+ 998:	f0 e0       	ldi	r31, 0x00	; 0
+ 99a:	de 01       	movw	r26, r28
+ 99c:	11 96       	adiw	r26, 0x01	; 1
+ 99e:	01 90       	ld	r0, Z+
+ 9a0:	0d 92       	st	X+, r0
+ 9a2:	8a 95       	dec	r24
+ 9a4:	e1 f7       	brne	.-8      	; 0x99e <ESP_SendData+0x2a>
+ 9a6:	80 91 f2 00 	lds	r24, 0x00F2	; 0x8000f2 <RequestSent.1920>
+ 9aa:	81 11       	cpse	r24, r1
+ 9ac:	40 c0       	rjmp	.+128    	; 0xa2e <ESP_SendData+0xba>
+ 9ae:	81 e0       	ldi	r24, 0x01	; 1
+ 9b0:	80 93 f2 00 	sts	0x00F2, r24	; 0x8000f2 <RequestSent.1920>
+ 9b4:	0e 94 1a 02 	call	0x434	; 0x434 <ESP_ClearResponseBuffer>
+ 9b8:	9e 01       	movw	r18, r28
+ 9ba:	2f 5f       	subi	r18, 0xFF	; 255
+ 9bc:	3f 4f       	sbci	r19, 0xFF	; 255
+ 9be:	ae 01       	movw	r20, r28
+ 9c0:	41 5f       	subi	r20, 0xF1	; 241
+ 9c2:	5f 4f       	sbci	r21, 0xFF	; 255
+ 9c4:	f9 01       	movw	r30, r18
+ 9c6:	df 01       	movw	r26, r30
+ 9c8:	a2 1b       	sub	r26, r18
+ 9ca:	b3 0b       	sbc	r27, r19
+ 9cc:	81 91       	ld	r24, Z+
+ 9ce:	ac 50       	subi	r26, 0x0C	; 12
+ 9d0:	be 4f       	sbci	r27, 0xFE	; 254
+ 9d2:	8c 93       	st	X, r24
+ 9d4:	e4 17       	cp	r30, r20
+ 9d6:	f5 07       	cpc	r31, r21
+ 9d8:	b1 f7       	brne	.-20     	; 0x9c6 <ESP_SendData+0x52>
+ 9da:	f7 01       	movw	r30, r14
+ 9dc:	80 81       	ld	r24, Z
+ 9de:	88 23       	and	r24, r24
+ 9e0:	71 f0       	breq	.+28     	; 0x9fe <ESP_SendData+0x8a>
+ 9e2:	d7 01       	movw	r26, r14
+ 9e4:	11 96       	adiw	r26, 0x01	; 1
+ 9e6:	ed e0       	ldi	r30, 0x0D	; 13
+ 9e8:	91 e0       	ldi	r25, 0x01	; 1
+ 9ea:	9e 0f       	add	r25, r30
+ 9ec:	f0 e0       	ldi	r31, 0x00	; 0
+ 9ee:	ec 50       	subi	r30, 0x0C	; 12
+ 9f0:	fe 4f       	sbci	r31, 0xFE	; 254
+ 9f2:	80 83       	st	Z, r24
+ 9f4:	8d 91       	ld	r24, X+
+ 9f6:	e9 2f       	mov	r30, r25
+ 9f8:	81 11       	cpse	r24, r1
+ 9fa:	f6 cf       	rjmp	.-20     	; 0x9e8 <ESP_SendData+0x74>
+ 9fc:	01 c0       	rjmp	.+2      	; 0xa00 <ESP_SendData+0x8c>
+ 9fe:	9d e0       	ldi	r25, 0x0D	; 13
+ a00:	e9 2f       	mov	r30, r25
+ a02:	f0 e0       	ldi	r31, 0x00	; 0
+ a04:	ec 50       	subi	r30, 0x0C	; 12
+ a06:	fe 4f       	sbci	r31, 0xFE	; 254
+ a08:	8d e0       	ldi	r24, 0x0D	; 13
+ a0a:	80 83       	st	Z, r24
+ a0c:	e1 e0       	ldi	r30, 0x01	; 1
+ a0e:	e9 0f       	add	r30, r25
+ a10:	f0 e0       	ldi	r31, 0x00	; 0
+ a12:	ec 50       	subi	r30, 0x0C	; 12
+ a14:	fe 4f       	sbci	r31, 0xFE	; 254
+ a16:	8a e0       	ldi	r24, 0x0A	; 10
+ a18:	80 83       	st	Z, r24
+ a1a:	9e 5f       	subi	r25, 0xFE	; 254
+ a1c:	e9 2f       	mov	r30, r25
+ a1e:	f0 e0       	ldi	r31, 0x00	; 0
+ a20:	ec 50       	subi	r30, 0x0C	; 12
+ a22:	fe 4f       	sbci	r31, 0xFE	; 254
+ a24:	10 82       	st	Z, r1
+ a26:	84 ef       	ldi	r24, 0xF4	; 244
+ a28:	91 e0       	ldi	r25, 0x01	; 1
+ a2a:	0e 94 b2 00 	call	0x164	; 0x164 <UART_Write_String>
+ a2e:	0e 94 e9 00 	call	0x1d2	; 0x1d2 <ESP_ReadResponseLine>
+ a32:	88 23       	and	r24, r24
+ a34:	d9 f0       	breq	.+54     	; 0xa6c <ESP_SendData+0xf8>
+ a36:	0e 94 e9 00 	call	0x1d2	; 0x1d2 <ESP_ReadResponseLine>
+ a3a:	82 30       	cpi	r24, 0x02	; 2
+ a3c:	b9 f0       	breq	.+46     	; 0xa6c <ESP_SendData+0xf8>
+ a3e:	80 91 f8 00 	lds	r24, 0x00F8	; 0x8000f8 <ReceivedFullResponse>
+ a42:	88 23       	and	r24, r24
+ a44:	91 f0       	breq	.+36     	; 0xa6a <ESP_SendData+0xf6>
+ a46:	c8 01       	movw	r24, r16
+ a48:	0e 94 b2 00 	call	0x164	; 0x164 <UART_Write_String>
+ a4c:	0e 94 1a 02 	call	0x434	; 0x434 <ESP_ClearResponseBuffer>
+ a50:	10 92 f2 00 	sts	0x00F2, r1	; 0x8000f2 <RequestSent.1920>
+ a54:	ff e1       	ldi	r31, 0x1F	; 31
+ a56:	2f eb       	ldi	r18, 0xBF	; 191
+ a58:	82 e0       	ldi	r24, 0x02	; 2
+ a5a:	f1 50       	subi	r31, 0x01	; 1
+ a5c:	20 40       	sbci	r18, 0x00	; 0
+ a5e:	80 40       	sbci	r24, 0x00	; 0
+ a60:	e1 f7       	brne	.-8      	; 0xa5a <ESP_SendData+0xe6>
+ a62:	00 c0       	rjmp	.+0      	; 0xa64 <ESP_SendData+0xf0>
+ a64:	00 00       	nop
+ a66:	81 e0       	ldi	r24, 0x01	; 1
+ a68:	01 c0       	rjmp	.+2      	; 0xa6c <ESP_SendData+0xf8>
+ a6a:	82 e0       	ldi	r24, 0x02	; 2
+ a6c:	2e 96       	adiw	r28, 0x0e	; 14
+ a6e:	0f b6       	in	r0, 0x3f	; 63
+ a70:	f8 94       	cli
+ a72:	de bf       	out	0x3e, r29	; 62
+ a74:	0f be       	out	0x3f, r0	; 63
+ a76:	cd bf       	out	0x3d, r28	; 61
+ a78:	df 91       	pop	r29
+ a7a:	cf 91       	pop	r28
+ a7c:	1f 91       	pop	r17
+ a7e:	0f 91       	pop	r16
+ a80:	ff 90       	pop	r15
+ a82:	ef 90       	pop	r14
+ a84:	08 95       	ret
+
+00000a86 <ESP_ReceiveData>:
+ a86:	80 91 f1 00 	lds	r24, 0x00F1	; 0x8000f1 <RequestSent.1931>
+ a8a:	81 11       	cpse	r24, r1
+ a8c:	05 c0       	rjmp	.+10     	; 0xa98 <ESP_ReceiveData+0x12>
+ a8e:	81 e0       	ldi	r24, 0x01	; 1
+ a90:	80 93 f1 00 	sts	0x00F1, r24	; 0x8000f1 <RequestSent.1931>
+ a94:	0e 94 1a 02 	call	0x434	; 0x434 <ESP_ClearResponseBuffer>
+ a98:	0e 94 e9 00 	call	0x1d2	; 0x1d2 <ESP_ReadResponseLine>
+ a9c:	88 23       	and	r24, r24
+ a9e:	d9 f1       	breq	.+118    	; 0xb16 <ESP_ReceiveData+0x90>
+ aa0:	0e 94 e9 00 	call	0x1d2	; 0x1d2 <ESP_ReadResponseLine>
+ aa4:	82 30       	cpi	r24, 0x02	; 2
+ aa6:	d1 f1       	breq	.+116    	; 0xb1c <ESP_ReceiveData+0x96>
+ aa8:	80 91 f8 00 	lds	r24, 0x00F8	; 0x8000f8 <ReceivedFullResponse>
+ aac:	88 23       	and	r24, r24
+ aae:	c9 f1       	breq	.+114    	; 0xb22 <ESP_ReceiveData+0x9c>
+ ab0:	80 91 f7 00 	lds	r24, 0x00F7	; 0x8000f7 <CorrectDataReceived>
+ ab4:	88 23       	and	r24, r24
+ ab6:	c1 f1       	breq	.+112    	; 0xb28 <ESP_ReceiveData+0xa2>
+ ab8:	80 91 fa 00 	lds	r24, 0x00FA	; 0x8000fa <TempResponseBuffer>
+ abc:	88 23       	and	r24, r24
+ abe:	a9 f0       	breq	.+42     	; 0xaea <ESP_ReceiveData+0x64>
+ ac0:	80 e0       	ldi	r24, 0x00	; 0
+ ac2:	90 e0       	ldi	r25, 0x00	; 0
+ ac4:	20 e0       	ldi	r18, 0x00	; 0
+ ac6:	fc 01       	movw	r30, r24
+ ac8:	e6 50       	subi	r30, 0x06	; 6
+ aca:	ff 4f       	sbci	r31, 0xFF	; 255
+ acc:	30 81       	ld	r19, Z
+ ace:	fc 01       	movw	r30, r24
+ ad0:	e2 51       	subi	r30, 0x12	; 18
+ ad2:	fd 4f       	sbci	r31, 0xFD	; 253
+ ad4:	30 83       	st	Z, r19
+ ad6:	2f 5f       	subi	r18, 0xFF	; 255
+ ad8:	82 2f       	mov	r24, r18
+ ada:	90 e0       	ldi	r25, 0x00	; 0
+ adc:	fc 01       	movw	r30, r24
+ ade:	e6 50       	subi	r30, 0x06	; 6
+ ae0:	ff 4f       	sbci	r31, 0xFF	; 255
+ ae2:	30 81       	ld	r19, Z
+ ae4:	31 11       	cpse	r19, r1
+ ae6:	ef cf       	rjmp	.-34     	; 0xac6 <ESP_ReceiveData+0x40>
+ ae8:	02 c0       	rjmp	.+4      	; 0xaee <ESP_ReceiveData+0x68>
+ aea:	80 e0       	ldi	r24, 0x00	; 0
+ aec:	90 e0       	ldi	r25, 0x00	; 0
+ aee:	fc 01       	movw	r30, r24
+ af0:	e2 51       	subi	r30, 0x12	; 18
+ af2:	fd 4f       	sbci	r31, 0xFD	; 253
+ af4:	10 82       	st	Z, r1
+ af6:	0e 94 1a 02 	call	0x434	; 0x434 <ESP_ClearResponseBuffer>
+ afa:	10 92 f1 00 	sts	0x00F1, r1	; 0x8000f1 <RequestSent.1931>
+ afe:	2f e1       	ldi	r18, 0x1F	; 31
+ b00:	8f eb       	ldi	r24, 0xBF	; 191
+ b02:	92 e0       	ldi	r25, 0x02	; 2
+ b04:	21 50       	subi	r18, 0x01	; 1
+ b06:	80 40       	sbci	r24, 0x00	; 0
+ b08:	90 40       	sbci	r25, 0x00	; 0
+ b0a:	e1 f7       	brne	.-8      	; 0xb04 <ESP_ReceiveData+0x7e>
+ b0c:	00 c0       	rjmp	.+0      	; 0xb0e <ESP_ReceiveData+0x88>
+ b0e:	00 00       	nop
+ b10:	8e ee       	ldi	r24, 0xEE	; 238
+ b12:	92 e0       	ldi	r25, 0x02	; 2
+ b14:	08 95       	ret
+ b16:	80 e0       	ldi	r24, 0x00	; 0
+ b18:	90 e0       	ldi	r25, 0x00	; 0
+ b1a:	08 95       	ret
+ b1c:	82 e0       	ldi	r24, 0x02	; 2
+ b1e:	90 e0       	ldi	r25, 0x00	; 0
+ b20:	08 95       	ret
+ b22:	82 e0       	ldi	r24, 0x02	; 2
+ b24:	90 e0       	ldi	r25, 0x00	; 0
+ b26:	08 95       	ret
+ b28:	82 e0       	ldi	r24, 0x02	; 2
+ b2a:	90 e0       	ldi	r25, 0x00	; 0
+ b2c:	08 95       	ret
+
+00000b2e <ESP_InitTest>:
+ b2e:	cf 93       	push	r28
+ b30:	df 93       	push	r29
+ b32:	00 d0       	rcall	.+0      	; 0xb34 <ESP_InitTest+0x6>
+ b34:	1f 92       	push	r1
+ b36:	cd b7       	in	r28, 0x3d	; 61
+ b38:	de b7       	in	r29, 0x3e	; 62
+ b3a:	81 e4       	ldi	r24, 0x41	; 65
+ b3c:	94 e5       	ldi	r25, 0x54	; 84
+ b3e:	9a 83       	std	Y+2, r25	; 0x02
+ b40:	89 83       	std	Y+1, r24	; 0x01
+ b42:	1b 82       	std	Y+3, r1	; 0x03
+ b44:	80 91 f0 00 	lds	r24, 0x00F0	; 0x8000f0 <RequestSent.1939>
+ b48:	81 11       	cpse	r24, r1
+ b4a:	34 c0       	rjmp	.+104    	; 0xbb4 <ESP_InitTest+0x86>
+ b4c:	81 e0       	ldi	r24, 0x01	; 1
+ b4e:	80 93 f0 00 	sts	0x00F0, r24	; 0x8000f0 <RequestSent.1939>
+ b52:	0e 94 1a 02 	call	0x434	; 0x434 <ESP_ClearResponseBuffer>
+ b56:	29 81       	ldd	r18, Y+1	; 0x01
+ b58:	22 23       	and	r18, r18
+ b5a:	a1 f0       	breq	.+40     	; 0xb84 <ESP_InitTest+0x56>
+ b5c:	80 e0       	ldi	r24, 0x00	; 0
+ b5e:	90 e0       	ldi	r25, 0x00	; 0
+ b60:	e0 e0       	ldi	r30, 0x00	; 0
+ b62:	ef 5f       	subi	r30, 0xFF	; 255
+ b64:	dc 01       	movw	r26, r24
+ b66:	ac 50       	subi	r26, 0x0C	; 12
+ b68:	be 4f       	sbci	r27, 0xFE	; 254
+ b6a:	2c 93       	st	X, r18
+ b6c:	8e 2f       	mov	r24, r30
+ b6e:	90 e0       	ldi	r25, 0x00	; 0
+ b70:	a1 e0       	ldi	r26, 0x01	; 1
+ b72:	b0 e0       	ldi	r27, 0x00	; 0
+ b74:	ac 0f       	add	r26, r28
+ b76:	bd 1f       	adc	r27, r29
+ b78:	a8 0f       	add	r26, r24
+ b7a:	b9 1f       	adc	r27, r25
+ b7c:	2c 91       	ld	r18, X
+ b7e:	21 11       	cpse	r18, r1
+ b80:	f0 cf       	rjmp	.-32     	; 0xb62 <ESP_InitTest+0x34>
+ b82:	03 c0       	rjmp	.+6      	; 0xb8a <ESP_InitTest+0x5c>
+ b84:	80 e0       	ldi	r24, 0x00	; 0
+ b86:	90 e0       	ldi	r25, 0x00	; 0
+ b88:	e0 e0       	ldi	r30, 0x00	; 0
+ b8a:	dc 01       	movw	r26, r24
+ b8c:	ac 50       	subi	r26, 0x0C	; 12
+ b8e:	be 4f       	sbci	r27, 0xFE	; 254
+ b90:	2d e0       	ldi	r18, 0x0D	; 13
+ b92:	2c 93       	st	X, r18
+ b94:	a1 e0       	ldi	r26, 0x01	; 1
+ b96:	ae 0f       	add	r26, r30
+ b98:	b0 e0       	ldi	r27, 0x00	; 0
+ b9a:	ac 50       	subi	r26, 0x0C	; 12
+ b9c:	be 4f       	sbci	r27, 0xFE	; 254
+ b9e:	8a e0       	ldi	r24, 0x0A	; 10
+ ba0:	8c 93       	st	X, r24
+ ba2:	ee 5f       	subi	r30, 0xFE	; 254
+ ba4:	f0 e0       	ldi	r31, 0x00	; 0
+ ba6:	ec 50       	subi	r30, 0x0C	; 12
+ ba8:	fe 4f       	sbci	r31, 0xFE	; 254
+ baa:	10 82       	st	Z, r1
+ bac:	84 ef       	ldi	r24, 0xF4	; 244
+ bae:	91 e0       	ldi	r25, 0x01	; 1
+ bb0:	0e 94 b2 00 	call	0x164	; 0x164 <UART_Write_String>
+ bb4:	0e 94 e9 00 	call	0x1d2	; 0x1d2 <ESP_ReadResponseLine>
+ bb8:	88 23       	and	r24, r24
+ bba:	c1 f0       	breq	.+48     	; 0xbec <ESP_InitTest+0xbe>
+ bbc:	0e 94 e9 00 	call	0x1d2	; 0x1d2 <ESP_ReadResponseLine>
+ bc0:	82 30       	cpi	r24, 0x02	; 2
+ bc2:	a1 f0       	breq	.+40     	; 0xbec <ESP_InitTest+0xbe>
+ bc4:	80 91 f8 00 	lds	r24, 0x00F8	; 0x8000f8 <ReceivedFullResponse>
+ bc8:	88 23       	and	r24, r24
+ bca:	79 f0       	breq	.+30     	; 0xbea <ESP_InitTest+0xbc>
+ bcc:	0e 94 1a 02 	call	0x434	; 0x434 <ESP_ClearResponseBuffer>
+ bd0:	10 92 f0 00 	sts	0x00F0, r1	; 0x8000f0 <RequestSent.1939>
+ bd4:	2f e1       	ldi	r18, 0x1F	; 31
+ bd6:	8f eb       	ldi	r24, 0xBF	; 191
+ bd8:	92 e0       	ldi	r25, 0x02	; 2
+ bda:	21 50       	subi	r18, 0x01	; 1
+ bdc:	80 40       	sbci	r24, 0x00	; 0
+ bde:	90 40       	sbci	r25, 0x00	; 0
+ be0:	e1 f7       	brne	.-8      	; 0xbda <ESP_InitTest+0xac>
+ be2:	00 c0       	rjmp	.+0      	; 0xbe4 <ESP_InitTest+0xb6>
+ be4:	00 00       	nop
+ be6:	81 e0       	ldi	r24, 0x01	; 1
+ be8:	01 c0       	rjmp	.+2      	; 0xbec <ESP_InitTest+0xbe>
+ bea:	82 e0       	ldi	r24, 0x02	; 2
+ bec:	0f 90       	pop	r0
+ bee:	0f 90       	pop	r0
+ bf0:	0f 90       	pop	r0
+ bf2:	df 91       	pop	r29
+ bf4:	cf 91       	pop	r28
+ bf6:	08 95       	ret
+
+00000bf8 <WIFI_Service_Start>:
+ bf8:	ef 92       	push	r14
+ bfa:	ff 92       	push	r15
+ bfc:	0f 93       	push	r16
+ bfe:	1f 93       	push	r17
+ c00:	cf 93       	push	r28
+ c02:	df 93       	push	r29
+ c04:	7b 01       	movw	r14, r22
+ c06:	8a 01       	movw	r16, r20
+ c08:	e9 01       	movw	r28, r18
+ c0a:	81 11       	cpse	r24, r1
+ c0c:	18 c0       	rjmp	.+48     	; 0xc3e <WIFI_Service_Start+0x46>
+ c0e:	0e 94 97 05 	call	0xb2e	; 0xb2e <ESP_InitTest>
+ c12:	81 30       	cpi	r24, 0x01	; 1
+ c14:	e1 f7       	brne	.-8      	; 0xc0e <WIFI_Service_Start+0x16>
+ c16:	82 e3       	ldi	r24, 0x32	; 50
+ c18:	0e 94 3f 03 	call	0x67e	; 0x67e <ESP_SelectMode>
+ c1c:	81 30       	cpi	r24, 0x01	; 1
+ c1e:	d9 f7       	brne	.-10     	; 0xc16 <WIFI_Service_Start+0x1e>
+ c20:	c7 01       	movw	r24, r14
+ c22:	0e 94 a9 04 	call	0x952	; 0x952 <ESP_StartServer>
+ c26:	81 30       	cpi	r24, 0x01	; 1
+ c28:	d9 f7       	brne	.-10     	; 0xc20 <WIFI_Service_Start+0x28>
+ c2a:	2b ee       	ldi	r18, 0xEB	; 235
+ c2c:	30 e0       	ldi	r19, 0x00	; 0
+ c2e:	45 ec       	ldi	r20, 0xC5	; 197
+ c30:	50 e0       	ldi	r21, 0x00	; 0
+ c32:	be 01       	movw	r22, r28
+ c34:	c8 01       	movw	r24, r16
+ c36:	0e 94 b8 03 	call	0x770	; 0x770 <ESP_CreateAccesPoint>
+ c3a:	81 30       	cpi	r24, 0x01	; 1
+ c3c:	b1 f7       	brne	.-20     	; 0xc2a <WIFI_Service_Start+0x32>
+ c3e:	df 91       	pop	r29
+ c40:	cf 91       	pop	r28
+ c42:	1f 91       	pop	r17
+ c44:	0f 91       	pop	r16
+ c46:	ff 90       	pop	r15
+ c48:	ef 90       	pop	r14
+ c4a:	08 95       	ret
+
+00000c4c <__udivmodsi4>:
+ c4c:	a1 e2       	ldi	r26, 0x21	; 33
+ c4e:	1a 2e       	mov	r1, r26
+ c50:	aa 1b       	sub	r26, r26
+ c52:	bb 1b       	sub	r27, r27
+ c54:	fd 01       	movw	r30, r26
+ c56:	0d c0       	rjmp	.+26     	; 0xc72 <__udivmodsi4_ep>
+
+00000c58 <__udivmodsi4_loop>:
+ c58:	aa 1f       	adc	r26, r26
+ c5a:	bb 1f       	adc	r27, r27
+ c5c:	ee 1f       	adc	r30, r30
+ c5e:	ff 1f       	adc	r31, r31
+ c60:	a2 17       	cp	r26, r18
+ c62:	b3 07       	cpc	r27, r19
+ c64:	e4 07       	cpc	r30, r20
+ c66:	f5 07       	cpc	r31, r21
+ c68:	20 f0       	brcs	.+8      	; 0xc72 <__udivmodsi4_ep>
+ c6a:	a2 1b       	sub	r26, r18
+ c6c:	b3 0b       	sbc	r27, r19
+ c6e:	e4 0b       	sbc	r30, r20
+ c70:	f5 0b       	sbc	r31, r21
+
+00000c72 <__udivmodsi4_ep>:
+ c72:	66 1f       	adc	r22, r22
+ c74:	77 1f       	adc	r23, r23
+ c76:	88 1f       	adc	r24, r24
+ c78:	99 1f       	adc	r25, r25
+ c7a:	1a 94       	dec	r1
+ c7c:	69 f7       	brne	.-38     	; 0xc58 <__udivmodsi4_loop>
+ c7e:	60 95       	com	r22
+ c80:	70 95       	com	r23
+ c82:	80 95       	com	r24
+ c84:	90 95       	com	r25
+ c86:	9b 01       	movw	r18, r22
+ c88:	ac 01       	movw	r20, r24
+ c8a:	bd 01       	movw	r22, r26
+ c8c:	cf 01       	movw	r24, r30
+ c8e:	08 95       	ret
+
+00000c90 <_exit>:
+ c90:	f8 94       	cli
+
+00000c92 <__stop_program>:
+ c92:	ff cf       	rjmp	.-2      	; 0xc92 <__stop_program>
